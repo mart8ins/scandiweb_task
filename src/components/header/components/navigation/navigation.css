@@ -1,0 +1,95 @@
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 234px;
+    height: 56px;
+    left: 101px;
+    bottom: 0px;
+}
+
+.navigation .header__navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    width: 234px;
+    height: 56px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navigation .header__navigation .navigation__element {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0px;
+    flex: none;
+    height: 56px;
+    flex-grow: 0;
+    position: absolute;
+}
+.navigation .header__navigation .navigation__element:nth-child(1) {
+    width: 97px;
+    order: 0;
+}
+.navigation .header__navigation .navigation__element:nth-child(2) {
+    width: 69px;
+    order: 1;
+    left: 97px;
+}
+.navigation .header__navigation .navigation__element:nth-child(3) {
+    width: 68px;
+    order: 2;
+    left: 166px;
+}
+
+.navigation .header__navigation .navigation__element .label__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    height: 52px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    top: 4px;
+    left: 16px;
+}
+
+.navigation .header__navigation .navigation__element .label__container .label {
+    width: 65px;
+    height: 20px;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navigation .header__navigation .navigation__element .label__container .label:hover {
+    cursor: pointer;
+}
+
+.navigation .header__navigation .navigation__element .label__container .border {
+    width: 65px;
+    height: 2px;
+    background: #5ece7b;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
