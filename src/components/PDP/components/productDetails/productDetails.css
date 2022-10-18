@@ -1,0 +1,57 @@
+.details__container {
+    position: absolute;
+    width: 1002px;
+    height: 595px;
+    left: 219px;
+    top: 160px;
+}
+
+.details__container .main__image__view {
+    position: absolute;
+    width: 610px;
+    height: 511px;
+    left: 0px;
+    top: 0px;
+}
+
+.details__container .product__options__view {
+    position: absolute;
+    width: 292px;
+    height: 595px;
+    left: 710px;
+}
+
+.details__container .product__options__view .brand__name,
+.product__name {
+    position: absolute;
+    width: 292px;
+    height: 27px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #1d1f22;
+    margin: 0;
+}
+
+.details__container .product__options__view .product__name {
+    top: 43px;
+    font-weight: 400;
+}
+
+.details__container .product__options__view .description {
+    position: absolute;
+    width: 292px;
+    height: 103px;
+    bottom: 10px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25.59px;
+    color: #1d1f22;
+    text-align: left;
+}

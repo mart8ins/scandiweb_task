@@ -1,0 +1,19 @@
+.side__images__container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 595px;
+    left: 100px;
+    top: 160px;
+    gap: 40px;
+}
+
+.side__images__container .side__image {
+    width: 79px;
+    height: 80px;
+    background-color: grey;
+}
+
+.side__images__container .side__image:hover {
+    cursor: pointer;
+}

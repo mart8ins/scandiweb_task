@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./productCard.css";
-import add_to_basket from "../../../icons/CircleIcon.svg";
+import add_to_basket from "../../../../icons/CircleIcon.svg";
 
 class ProductCard extends Component {
     constructor(props) {
