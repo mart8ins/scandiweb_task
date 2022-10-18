@@ -1,3 +1,8 @@
 .App {
     text-align: center;
+    width: 1440px;
+    min-height: 1513px;
+    background: #ffffff;
+    position: relative;
+    margin: 0 auto;
 }
