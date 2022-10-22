@@ -3,9 +3,10 @@ import "./priceTag.css";
 
 class PriceTag extends Component {
     render() {
+        const { showTitle } = this.props;
         return (
             <div className="price__tag">
-                <div className="price__title">Price:</div>
+                {showTitle && <div className="price__title">Price:</div>}
                 <div className="price__amount">$50.00</div>
             </div>
         );

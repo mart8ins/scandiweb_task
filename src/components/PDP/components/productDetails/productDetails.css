@@ -15,38 +15,28 @@
 }
 
 .details__container .product__options__view {
-    position: absolute;
+    position: relative;
     width: 292px;
     height: 595px;
     left: 710px;
 }
 
-.details__container .product__options__view .brand__name,
-.product__name {
-    position: absolute;
-    width: 292px;
-    height: 27px;
-    font-family: "Raleway";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    color: #1d1f22;
-    margin: 0;
+.details__container .product__options__view .product__size__picker__container {
+    margin-top: 43px;
 }
-
-.details__container .product__options__view .product__name {
-    top: 43px;
-    font-weight: 400;
+.details__container .product__options__view .product__color__picker__container {
+    margin-top: 24px;
+}
+.details__container .product__options__view .product__price__tag__container {
+    margin-top: 36px;
+}
+.details__container .product__options__view .product__add__to__chart__container {
+    margin-top: 20px;
 }
 
 .details__container .product__options__view .description {
-    position: absolute;
     width: 292px;
     height: 103px;
-    bottom: 10px;
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
@@ -54,4 +44,5 @@
     line-height: 25.59px;
     color: #1d1f22;
     text-align: left;
+    margin-top: 40px;
 }

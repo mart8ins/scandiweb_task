@@ -1,0 +1,26 @@
+.product__title {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product__title .brand__name,
+.product__name {
+    position: relative;
+    width: 292px;
+    height: 27px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #1d1f22;
+    margin: 0;
+}
+
+.product__title .product__name {
+    font-weight: 400;
+}

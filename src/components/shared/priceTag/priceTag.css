@@ -1,13 +1,6 @@
-.price__tag {
-    position: absolute;
-    top: 298px;
-}
-
 .price__tag .price__title {
-    position: relative;
     width: 38px;
     height: 18px;
-    top: 0px;
     font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 700;
@@ -21,10 +14,9 @@
 }
 
 .price__tag .price__amount {
-    position: absolute;
     width: 86px;
     height: 46px;
-    top: 26px;
+    margin-top: 10px;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 700;
