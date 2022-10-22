@@ -4,6 +4,11 @@ import SizePicker from "../../../shared/sizePicker/SizePicker";
 import ColorPicker from "../../../shared/colorPicker/ColorPicker";
 import "./cartItem.css";
 import PriceTag from "../../../shared/priceTag/PriceTag";
+import vec_hor from "../../../../icons/Vector-hor.svg";
+import vec_ver from "../../../../icons/Vector-ver.svg";
+
+import arrow_left from "../../../../icons/Vector-arrow-left.svg";
+import arrow_right from "../../../../icons/Vector-arrow-right.svg";
 
 export class CartItem extends Component {
     render() {
@@ -28,11 +33,31 @@ export class CartItem extends Component {
                             <ColorPicker colors={colors} />
                         </div>
                     </div>
-                    <div>Vertikālais skaita mainitaajs</div>
+                    <div className="change__quantity__container">
+                        <div className="increase__item">
+                            <img src={vec_hor} alt="Increase quantity button" />
+                            <img className="vertical__line" src={vec_ver} alt="Increase quantity button" />
+                        </div>
+                        <div className="item__quantity">2</div>
+                        <div className="decrease__item">
+                            <img src={vec_hor} alt="Decrease quantity button" />
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div>Pati bilde</div>
-                    <div>Bultas bildes mainišanai</div>
+                <div className="item__image__container">
+                    <img src={"./Image.png"} />
+                    <div className="change__image">
+                        <div className="image__to__left">
+                            <div className="vector__container">
+                                <img className="arrow" src={arrow_left} alt="Change image" />
+                            </div>
+                        </div>
+                        <div className="image__to__right">
+                            <div className="vector__container">
+                                <img className="arrow" src={arrow_right} alt="Change image" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

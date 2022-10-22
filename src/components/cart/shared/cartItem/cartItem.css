@@ -16,13 +16,104 @@
 }
 
 .cart__item__container .cart__item__details .item__options .product__price__tag__container {
-    margin-top: 20px;
+    margin-top: 12px;
 }
 
 .cart__item__container .cart__item__details .item__options .product__size__picker__container {
-    margin-top: 20px;
+    margin-top: 8px;
 }
 
 .cart__item__container .cart__item__details .item__options .product__color__picker__container {
     margin-top: 16px;
+}
+
+.cart__item__container .cart__item__details .change__quantity__container {
+    width: 45px;
+    height: 288px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+    position: relative;
+}
+
+.cart__item__container .cart__item__details .change__quantity__container .increase__item,
+.item__quantity,
+.decrease__item {
+    width: 45px;
+    height: 45px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart__item__container .cart__item__details .change__quantity__container .increase__item,
+.decrease__item {
+    border: 1px solid #1d1f22;
+}
+
+.cart__item__container .cart__item__details .change__quantity__container .increase__item .vertical__line {
+    position: absolute;
+}
+
+.cart__item__container .cart__item__details .change__quantity__container:hover .increase__item,
+.decrease__item {
+    cursor: pointer;
+}
+
+.cart__item__container .cart__item__details .change__quantity__container .item__quantity {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+    color: #1d1f22;
+}
+
+.cart__item__container .item__image__container {
+    width: 200px;
+    height: 288px;
+    position: relative;
+    align-self: center;
+    margin-left: 24px;
+}
+.cart__item__container .item__image__container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart__item__container .item__image__container .change__image {
+    position: absolute;
+    width: 56px;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    bottom: 16px;
+    right: 16px;
+}
+
+.cart__item__container .item__image__container .change__image .image__to__left,
+.image__to__right {
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.73);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart__item__container .item__image__container .change__image:hover .image__to__left,
+.image__to__right {
+    cursor: pointer;
+}
+
+.cart__item__container .item__image__container .change__image .image__to__left .vector__container {
+    position: relative;
+    padding-right: 2px;
+}
+.cart__item__container .item__image__container .change__image .image__to__right .vector__container {
+    position: relative;
+    padding-left: 2px;
 }
