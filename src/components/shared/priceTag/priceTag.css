@@ -1,3 +1,4 @@
+/* MAIN CART */
 .price__tag .price__title {
     width: 38px;
     height: 18px;
@@ -25,4 +26,19 @@
     display: flex;
     align-items: center;
     color: #1d1f22;
+}
+
+/* FOR CART OVERLAY */
+
+.price__tag__overlay .price__amount__overlay {
+    width: 52px;
+    height: 26px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    text-align: right;
+    color: #1d1f22;
+    margin-top: 5px;
 }

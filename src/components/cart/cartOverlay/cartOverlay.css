@@ -1,0 +1,102 @@
+.cart__overlay {
+    width: 1440px;
+    position: absolute;
+    z-index: 3;
+    top: 78px;
+    bottom: 0px;
+    background: rgba(57, 55, 72, 0.22);
+}
+
+.cart__overlay .cart__preview__container {
+    position: absolute;
+    right: 72px;
+    width: 325px;
+    background: #ffffff;
+}
+
+.cart__overlay .cart__preview__container .cart__preview {
+    padding: 16px;
+}
+
+.cart__overlay .cart__preview__container .cart__preview .preview__title {
+    width: 138px;
+    height: 26px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    text-align: left;
+    color: #1d1f22;
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+.cart__overlay .cart__preview__container .cart__preview .preview__title span {
+    font-weight: 700;
+}
+
+.cart__overlay .cart__preview__container .cart__preview .cart__item__container {
+    width: 100%;
+}
+
+.cart__overlay .cart__preview__container .cart__preview .cart__overlay__totals__container {
+    width: 289px;
+    height: 28px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart__overlay .cart__preview__container .cart__preview .cart__overlay__totals__container .cart__overlay__totals__title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #1d1f22;
+    display: flex;
+    align-items: center;
+}
+.cart__overlay .cart__preview__container .cart__preview .cart__overlay__totals__container .cart__overlay__totals__value {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #1d1f22;
+}
+
+.cart__overlay .cart__preview__container .cart__preview .cart__overlay__buttons__container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+    width: 292px;
+    height: 43px;
+    margin: 34px 0 32px;
+}
+
+.cart__overlay .cart__preview__container .cart__preview .cart__overlay__buttons__container .cart__overlay__button {
+    width: 140px;
+    height: 43px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #1d1f22;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    color: #1d1f22;
+    text-transform: uppercase;
+}
+
+.cart__overlay .cart__preview__container .cart__preview .cart__overlay__buttons__container .cart__overlay__button:hover {
+    cursor: pointer;
+}

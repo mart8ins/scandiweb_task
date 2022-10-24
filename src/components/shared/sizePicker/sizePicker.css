@@ -46,3 +46,42 @@
 .size__picker .size__variants__container .size__variants:hover {
     cursor: pointer;
 }
+
+/* FOR CART OVERLAY */
+.size__picker__overlay .size__title__overlay {
+    width: 30px;
+    height: 16px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #1d1f22;
+    text-transform: capitalize;
+}
+
+.size__picker__overlay .size__variants__container__overlay {
+    display: flex;
+    gap: 8px;
+}
+
+.size__picker__overlay .size__variants__container__overlay .size__variants__overlay {
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 160%;
+    letter-spacing: 0em;
+}
+
+.size__picker__overlay .size__variants__container__overlay .selected__variant__overlay {
+    background: #1d1f22;
+    border: 1px solid #1d1f22;
+    color: #ffffff;
+}
+
+.size__picker__overlay .size__variants__container__overlay .size__variants__overlay:hover {
+    cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
-import CartItem from "../shared/cartItem/CartItem";
+import CartItem from "./cartItem/CartItem";
 import "./cartMain.css";
 
 class CartMain extends Component {

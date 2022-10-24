@@ -1,0 +1,89 @@
+.cart__item__container__ov {
+    height: 190px;
+    width: 293px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.cart__item__container__ov .cart__item__details__ov {
+    width: 164px;
+    height: 190px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* item options */
+.cart__item__container__ov .cart__item__details__ov .item__options__ov {
+    width: 136px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+}
+
+.cart__item__container__ov .cart__item__details__ov .item__options__ov .product__title__price__container__ov {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 136px;
+    height: 82px;
+}
+
+/* quantity changer*/
+.cart__item__container__ov .cart__item__details__ov .change__quantity__container__ov {
+    width: 24px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.cart__item__container__ov .cart__item__details__ov .change__quantity__container__ov .item__quantity__ov {
+    width: 8px;
+    height: 26px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    text-align: right;
+    color: #1d1f22;
+}
+
+.cart__item__container__ov .cart__item__details__ov .change__quantity__container__ov .increase__item__ov,
+.decrease__item__ov {
+    width: 24px;
+    height: 24px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart__item__container__ov .cart__item__details__ov .change__quantity__container__ov .increase__item__ov .vertical__line__ov {
+    position: absolute;
+}
+
+.cart__item__container__ov .cart__item__details__ov .change__quantity__container__ov:hover .increase__item__ov,
+.decrease__item__ov {
+    cursor: pointer;
+}
+
+/* image */
+.cart__item__container__ov .item__image__container__ov {
+    width: 121px;
+    height: 190px;
+}
+.cart__item__container__ov .item__image__container__ov img {
+    width: fill;
+    height: fill;
+    object-fit: cover;
+}

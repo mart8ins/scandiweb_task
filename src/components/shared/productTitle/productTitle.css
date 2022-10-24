@@ -1,3 +1,4 @@
+/* DEFAULT STYLES FOR MAIN CART*/
 .product__title {
     height: 70px;
     display: flex;
@@ -23,4 +24,25 @@
 
 .product__title .product__name {
     font-weight: 400;
+}
+
+/* STYLES FOR CART OVERLAY*/
+.product__title__overlay {
+    width: 136px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product__title__overlay .brand__name__overlay,
+.product__name__overlay {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    display: flex;
+    align-items: center;
+    color: #1d1f22;
 }

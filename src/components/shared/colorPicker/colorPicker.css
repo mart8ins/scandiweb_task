@@ -47,3 +47,33 @@
 #selected__border {
     border: 1px solid #5ece7b;
 }
+
+/* FOR CART OVERLAY */
+.color__picker__overlay .color__title__overlay {
+    width: 38px;
+    height: 16px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: capitalize;
+}
+
+.color__picker__overlay .color__variants__container__overlay {
+    gap: 8px;
+    height: 20px;
+}
+
+.color__picker__overlay .color__variants__container__overlay .color__variants__overlay {
+    width: 20px;
+    height: 20px;
+}
+
+.color__picker__overlay .color__variants__container__overlay .color__variants__overlay .variant__overlay {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    width: 16px;
+    height: 16px;
+}
