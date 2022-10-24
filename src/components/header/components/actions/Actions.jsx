@@ -40,7 +40,12 @@ class Actions extends Component {
                         {!this.state.showCurrencyOptions && <img className="vector" src={vector_down} alt="Currency chooser" />}
                         {this.state.showCurrencyOptions && <img className="vector" src={vector_up} alt="Currency chooser" />}
                     </div>
-                    <img className="chart__icon" src={empty_chart} alt="Empty chart" />
+                    <div className="chart__icon">
+                        <img src={empty_chart} alt="Empty chart" />
+                        <div className="items__in__cart">
+                            <div className="cart__number">3</div>
+                        </div>
+                    </div>
                 </div>
                 {this.state.showCurrencyOptions && <CurrencySwitcher changeActiveCurrency={changeActiveCurrency} />}
             </>

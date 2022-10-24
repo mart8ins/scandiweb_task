@@ -76,14 +76,37 @@
     bottom: 38.75%;
 }
 
-/* .actions .currency .vector:hover {
-    cursor: pointer;
-} */
-
 .actions .chart__icon {
     width: 20px;
     height: 20px;
     flex: none;
     order: 3;
     flex-grow: 0;
+    position: relative;
+}
+
+.actions .chart__icon .items__in__cart {
+    width: 20px;
+    height: 20px;
+    background: #1d1f22;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 13px;
+    top: -7px;
+}
+
+.actions .chart__icon .items__in__cart .cart__number {
+    width: 14.29px;
+    height: 14.29px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
 }

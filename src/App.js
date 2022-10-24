@@ -8,9 +8,9 @@ function App() {
     return (
         <div className="App">
             <Header />
-            {/* <Category /> */}
+            <Category />
             {/* <ProductDetailPage /> */}
-            <CartMain />
+            {/* <CartMain /> */}
         </div>
     );
 }
