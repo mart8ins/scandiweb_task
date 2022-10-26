@@ -14,20 +14,24 @@ class Navigation extends Component {
                     {data &&
                         data.map((category) => {
                             return (
-                                <div key={category.name} className="navigation__element">
-                                    <div className="label__container">
-                                        <Link
-                                            to="/"
-                                            onClick={() => {
-                                                this.setState({ active: category.name });
-                                                setActiveCategory(category);
-                                            }}
-                                            className="label"
-                                            style={{ color: active.name === category.name && "#5ece7b" }}>
-                                            {category.name}
-                                        </Link>
-                                        {active.name === category.name && <div className="border"></div>}
-                                    </div>
+                                <div
+                                    key={category.name}
+                                    className="navigation__element"
+                                    style={{
+                                        borderBottom: active.name === category.name && "2px solid #5ece7b",
+                                    }}>
+                                    <Link
+                                        to="/"
+                                        onClick={() => {
+                                            this.setState({ active: category.name });
+                                            setActiveCategory(category);
+                                        }}
+                                        className="label"
+                                        style={{
+                                            color: active.name === category.name && "#5ece7b",
+                                        }}>
+                                        {category.name}
+                                    </Link>
                                 </div>
                             );
                         })}

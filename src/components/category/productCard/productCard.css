@@ -132,7 +132,6 @@
     flex-direction: column;
     align-items: center;
     padding: 0px;
-    width: 58px;
     height: 29px;
     font-family: "Raleway";
     font-style: normal;
@@ -141,7 +140,4 @@
     text-align: right;
     gap: 10px;
     color: #1d1f22;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
