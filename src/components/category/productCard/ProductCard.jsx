@@ -7,6 +7,7 @@ import { AppContext } from "../../context";
 class ProductCard extends Component {
     state = {
         hover: false,
+        hoverOnIcon: false,
     };
 
     render() {
@@ -20,7 +21,7 @@ class ProductCard extends Component {
         const { price, name, stock, image } = this.props;
         return (
             <Link
-                to="/product/1"
+                // to="/product/1"
                 className="product__card"
                 style={{ pointerEvents: !stock && "none" }}
                 onMouseEnter={() => {
@@ -33,7 +34,7 @@ class ProductCard extends Component {
                         hover: false,
                     });
                 }}
-                onClick={visitProduct}>
+                onClick={!this.state.hoverOnIcon && this.state.hover ? visitProduct : undefined}>
                 <div className="product__image__container">
                     {!stock && (
                         <div className="out__of__stock__overlay">
@@ -42,8 +43,25 @@ class ProductCard extends Component {
                     )}
 
                     <img className="product__image" src={image} alt="Product image" />
-                    <div onClick={addToCart} className="add__to__basket_icon" style={{ visibility: this.state.hover && "visible" }}>
-                        <img src={add_to_basket} alt="Add to basket button" />
+                    <div
+                        onClick={this.state.hoverOnIcon ? addToCart : undefined}
+                        className="add__to__basket_icon__container"
+                        style={{ visibility: this.state.hover ? "visible" : "hidden" }}>
+                        <img
+                            onMouseEnter={() => {
+                                this.setState({
+                                    hoverOnIcon: true,
+                                });
+                            }}
+                            onMouseLeave={() => {
+                                this.setState({
+                                    hoverOnIcon: false,
+                                });
+                            }}
+                            src={add_to_basket}
+                            alt="Add to basket button"
+                            className="add__to__basket_icon"
+                        />
                     </div>
                 </div>
 
