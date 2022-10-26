@@ -16,10 +16,10 @@ class CartMain extends Component {
                 <div className="cart__items__container">
                     {cart.map((cartItem, i) => {
                         return (
-                            <>
+                            <div key={"a" + i}>
                                 <CartItem key={i} cartItem={cartItem} />
                                 <div className="cart__item__line"></div>
-                            </>
+                            </div>
                         );
                     })}
                     <div className="cart__totals__container">

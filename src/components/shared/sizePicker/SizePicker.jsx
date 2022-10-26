@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import "./sizePicker.css";
 
 class SizePicker extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeSize: "",
-        };
-    }
+    state = {
+        activeSize: "",
+    };
     render() {
         const { forType } = this.props;
         const avaliableSizes = this.props.sizes;

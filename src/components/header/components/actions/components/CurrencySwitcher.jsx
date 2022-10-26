@@ -2,28 +2,16 @@ import React, { Component } from "react";
 import "./currencySwitcher.css";
 
 class CurrencySwitcher extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currencies: [
-                { symbol: "£", name: "GBP" },
-                { symbol: "$", name: "USD" },
-                { symbol: "¥", name: "JPY" },
-                { symbol: "A$", name: "AUD" },
-                { symbol: "₽", name: "RUB" },
-            ],
-        };
-    }
-
     render() {
+        const { currencies, changeActiveCurrency } = this.props;
         return (
             <div className="currencies__group">
-                {this.state.currencies.map((cur, i) => {
+                {currencies.map((cur) => {
                     return (
-                        <div key={i} className="currencies__group__currency" onClick={() => this.props.changeActiveCurrency(cur)}>
+                        <div key={cur.label} className="currencies__group__currency" onClick={() => changeActiveCurrency(cur)}>
                             <div className="currency__group">
                                 <div className="currency__elements">{`${cur.symbol}`}</div>
-                                <div className="currency__elements">{` ${cur.name}`}</div>
+                                <div className="currency__elements">{` ${cur.label}`}</div>
                             </div>
                         </div>
                     );

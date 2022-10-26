@@ -20,7 +20,7 @@ class CartOverlay extends Component {
                             <span>May Bag,</span> {cartCount} items
                         </div>
                         {cart.map((cartItem, i) => {
-                            return <CartItemOverlay cartItem={cartItem} />;
+                            return <CartItemOverlay key={"b" + i} cartItem={cartItem} />;
                         })}
                         <div className="cart__overlay__totals__container">
                             <div className="cart__overlay__totals__title">Total</div>

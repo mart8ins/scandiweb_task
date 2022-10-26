@@ -75,9 +75,8 @@
     text-align: center;
     justify-content: center;
     text-transform: uppercase;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    text-decoration: none;
+    color: #1d1f22;
 }
 
 .navigation .header__navigation .navigation__element .label__container .label:hover {

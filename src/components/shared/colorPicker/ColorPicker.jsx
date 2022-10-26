@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import "./colorPicker.css";
 
 class ColorPicker extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeColor: "",
-        };
-    }
+    state = {
+        activeColor: "",
+    };
     render() {
         const { colors, forType } = this.props;
         return (
@@ -18,7 +15,7 @@ class ColorPicker extends Component {
                         Object.entries(colors).map(([colorName, colorCode], i) => {
                             return (
                                 <div
-                                    key={i}
+                                    key={"d" + i}
                                     onClick={() => {
                                         this.setState({
                                             ...this.state,

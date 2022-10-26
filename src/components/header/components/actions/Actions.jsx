@@ -4,23 +4,21 @@ import vector_down from "../../../../icons/Vector_down.svg";
 import vector_up from "../../../../icons/Vector_up.svg";
 import empty_chart from "../../../../icons/Empty Cart.svg";
 import CurrencySwitcher from "./components/CurrencySwitcher";
+import { AppContext } from "../../../context";
 
 class Actions extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showCurrencyOptions: false,
-            activeCurrency: { symbol: "$", name: "USD" },
-        };
-    }
+    state = {
+        showCurrencyOptions: false,
+    };
 
     render() {
         const changeActiveCurrency = (activeCurrency) => {
+            this.context.setActiveCurrency(activeCurrency);
             this.setState({
                 showCurrencyOptions: false,
-                activeCurrency,
             });
         };
+        const { data } = this.context.currencies;
         return (
             <>
                 <div className="actions">
@@ -35,7 +33,7 @@ class Actions extends Component {
                             });
                         }}>
                         <div className="currency__symbol">
-                            <div className="symbol">{this.state.activeCurrency.symbol}</div>
+                            <div className="symbol">{this.context.currencies.active.symbol}</div>
                         </div>
                         {!this.state.showCurrencyOptions && <img className="vector" src={vector_down} alt="Currency chooser" />}
                         {this.state.showCurrencyOptions && <img className="vector" src={vector_up} alt="Currency chooser" />}
@@ -47,10 +45,10 @@ class Actions extends Component {
                         </div>
                     </div>
                 </div>
-                {this.state.showCurrencyOptions && <CurrencySwitcher changeActiveCurrency={changeActiveCurrency} />}
+                {this.state.showCurrencyOptions && <CurrencySwitcher currencies={data} changeActiveCurrency={changeActiveCurrency} />}
             </>
         );
     }
 }
-
+Actions.contextType = AppContext;
 export default Actions;
