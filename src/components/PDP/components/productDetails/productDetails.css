@@ -1,40 +1,25 @@
-.details__container {
+.product__options__view {
     position: absolute;
-    width: 1002px;
+    width: 292px;
     height: 595px;
-    left: 219px;
+    left: 929px;
     top: 160px;
 }
 
-.details__container .main__image__view {
-    position: absolute;
-    width: 610px;
-    height: 511px;
-    left: 0px;
-    top: 0px;
-}
-
-.details__container .product__options__view {
-    position: relative;
-    width: 292px;
-    height: 595px;
-    left: 710px;
-}
-
-.details__container .product__options__view .product__size__picker__container {
+.product__options__view .product__size__picker__container {
     margin-top: 43px;
 }
-.details__container .product__options__view .product__color__picker__container {
+.product__options__view .product__color__picker__container {
     margin-top: 24px;
 }
-.details__container .product__options__view .product__price__tag__container {
+.product__options__view .product__price__tag__container {
     margin-top: 36px;
 }
-.details__container .product__options__view .product__add__to__chart__container {
+.product__options__view .product__add__to__chart__container {
     margin-top: 20px;
 }
 
-.details__container .product__options__view .description {
+.product__options__view .description {
     width: 292px;
     height: 103px;
     font-family: "Roboto";

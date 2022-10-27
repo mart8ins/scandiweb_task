@@ -1,0 +1,28 @@
+.images__container .side__images__container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 595px;
+    left: 100px;
+    top: 160px;
+    gap: 40px;
+}
+
+.images__container .side__images__container .side__image {
+    width: 79px;
+    height: 80px;
+    background-color: grey;
+}
+
+.images__container .side__images__container .side__image:hover {
+    cursor: pointer;
+}
+
+/* MAIN IMAGE */
+.images__container .main__image__view {
+    position: absolute;
+    width: 610px;
+    height: 511px;
+    left: 219px;
+    top: 162px;
+}
