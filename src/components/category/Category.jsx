@@ -29,10 +29,12 @@ class Category extends Component {
                             return (
                                 <ProductCard
                                     key={product.id}
+                                    id={product.id}
                                     name={product.name}
                                     price={activePrice}
                                     stock={product.inStock}
                                     image={product.gallery[0]}
+                                    category={product.category}
                                 />
                             );
                         })}

@@ -6,27 +6,27 @@ class SizePicker extends Component {
         activeSize: "",
     };
     render() {
-        const { forType } = this.props;
-        const avaliableSizes = this.props.sizes;
+        const { forType, sizes } = this.props;
         return (
             <div className={`size__picker ${forType && "size__picker__" + forType}`}>
                 <p className={`size__title ${forType && "size__title__" + forType}`}>Size:</p>
                 <div className={`size__variants__container ${forType && "size__variants__container__" + forType}`}>
-                    {avaliableSizes.map((size) => {
-                        return (
-                            <div
-                                key={`size-${size}`}
-                                onClick={() => {
-                                    this.setState({ ...this.state, activeSize: size });
-                                }}
-                                className={`size__variants ${forType && "size__variants__" + forType} ${
-                                    (!forType && this.state.activeSize === size && "selected__variant") ||
-                                    (forType && this.state.activeSize === size && "selected__variant__" + forType)
-                                }`}>
-                                {size}
-                            </div>
-                        );
-                    })}
+                    {sizes &&
+                        sizes.map((size) => {
+                            return (
+                                <div
+                                    key={`size-${size.id}`}
+                                    onClick={() => {
+                                        this.setState({ ...this.state, activeSize: size.value });
+                                    }}
+                                    className={`size__variants ${forType && "size__variants__" + forType} ${
+                                        (!forType && this.state.activeSize === size.value && "selected__variant") ||
+                                        (forType && this.state.activeSize === size.value && "selected__variant__" + forType)
+                                    }`}>
+                                    {size.value}
+                                </div>
+                            );
+                        })}
                 </div>
             </div>
         );

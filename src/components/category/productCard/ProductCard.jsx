@@ -18,10 +18,10 @@ class ProductCard extends Component {
             console.log("Doties uz produktu");
         };
 
-        const { price, name, stock, image } = this.props;
+        const { price, name, stock, image, id, category } = this.props;
         return (
             <Link
-                // to="/product/1"
+                to={this.state.hoverOnIcon ? undefined : `/${category}/${id}`}
                 className="product__card"
                 style={{ pointerEvents: !stock && "none" }}
                 onMouseEnter={() => {

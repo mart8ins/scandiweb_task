@@ -19,6 +19,7 @@ export const currenciesQuery = () => {
     });
 };
 
+// GET CATEGORIES WITH PRODUCTS
 export const categoryQuery = () => {
     return client.query({
         query: gql`
@@ -35,6 +36,39 @@ export const categoryQuery = () => {
                                 symbol
                             }
                             amount
+                        }
+                        category
+                    }
+                }
+            }
+        `,
+    });
+};
+
+// GET PRODUCT DATA
+export const productQuery = (productId) => {
+    return client.query({
+        query: gql`
+            query Product {
+                product(id:"${productId}") {
+                    name
+                    brand
+                    description
+                    prices {
+                        currency {
+                            symbol
+                        }
+                        amount
+                        }
+                    gallery
+                    attributes {
+                        id
+                        name
+                        type
+                        items{
+                        displayValue
+                        value
+                        id
                         }
                     }
                 }

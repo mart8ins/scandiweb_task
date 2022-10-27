@@ -3,12 +3,12 @@ import "./productTitle.css";
 
 class ProductTitle extends Component {
     render() {
-        const { forType } = this.props;
+        const { forType, name, brand } = this.props;
 
         return (
             <div className={`product__title ${forType && "product__title__" + forType}`}>
-                <p className={`brand__name ${forType && "brand__name__" + forType}`}>Apollo</p>
-                <p className={`product__name ${forType && "product__name__" + forType}`}>Running short</p>
+                <p className={`brand__name ${forType && "brand__name__" + forType}`}>{brand}</p>
+                <p className={`product__name ${forType && "product__name__" + forType}`}>{name}</p>
             </div>
         );
     }

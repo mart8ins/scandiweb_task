@@ -2,20 +2,33 @@ import React, { Component } from "react";
 import ProductDetails from "./components/productDetails/ProductDetails";
 import SideImages from "./components/sideImages/SideImages";
 import "./productDetailPage.css";
+import { productQuery } from "../queries";
+import withRouter from "./withRouter";
 
 class ProductDetailPage extends Component {
+    state = {
+        product: {},
+        productId: this.props.params.productId,
+    };
+
+    componentDidMount() {
+        this.getDetails();
+    }
+
+    async getDetails() {
+        const { data } = await productQuery(this.state.productId);
+        this.setState({
+            product: data.product,
+        });
+    }
     render() {
-        const product = {
-            sizes: ["S", "SX", "M"],
-            colors: { grey: "#D3D2D5", green: "#0F6450", black: "#2B2B2B" },
-        };
         return (
             <div className="product__details_page">
-                <SideImages />
-                <ProductDetails product={product} />
+                <SideImages images={this.state.product.gallery} />
+                <ProductDetails product={this.state.product} />
             </div>
         );
     }
 }
 
-export default ProductDetailPage;
+export default withRouter(ProductDetailPage);
