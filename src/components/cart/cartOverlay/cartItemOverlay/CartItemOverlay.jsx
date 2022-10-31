@@ -18,8 +18,8 @@ class CartItemOverlay extends Component {
     }
 
     async getDetails() {
-        const { cartProductId } = this.props.cartItem;
-        const { data } = await productQuery(cartProductId);
+        const { productId } = this.props.cartItem;
+        const { data } = await productQuery(productId);
         this.setState({
             product: data.product,
         });

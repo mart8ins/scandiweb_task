@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import parse from "html-react-parser";
+import { v4 as uuidv4 } from "uuid";
 import "./productDetails.css";
 import PriceTag from "../../../shared/priceTag/PriceTag";
 import AttributePicker from "../../../shared/attributePicker/AttributePicker";
@@ -21,6 +22,17 @@ class ProductDetails extends Component {
         } = this.props;
         const { addProductToCart } = this.context.cart;
 
+        const addToCart = () => {
+            const selected = attributes.map((attr) => {
+                console.log(attr);
+                return {
+                    id: attr.id,
+                    item: attr.items[0],
+                };
+            });
+            addProductToCart({ cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: selected });
+        };
+
         return (
             <div className="product__options__view">
                 <div className="product__title__container">
@@ -38,7 +50,7 @@ class ProductDetails extends Component {
                         styles={{ width: "292px", height: "52px", fontSize: "16px" }}
                         text={"Add to cart"}
                         onClick={() => {
-                            console.log("Add product to cart from product details");
+                            addToCart();
                         }}
                     />
                 </div>

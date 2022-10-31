@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import "./productCard.css";
 import add_to_basket from "../../../icons/CircleIcon.svg";
 import { AppContext } from "../../context";
@@ -18,10 +19,13 @@ class ProductCard extends Component {
          QUANTITY TO EXISITING BECAUSE CLIENT COULD WANT TO ORDER SAME PRODUCT WITH DIFFERENT ATTRIBUTES */
         const addToCart = () => {
             const selected = attributes.map((attr) => {
-                return attr;
+                console.log(attr);
+                return {
+                    id: attr.id,
+                    item: attr.items[0],
+                };
             });
-            // console.log(selected, "selected");
-            addProductToCart({ cartProductId: id, quantity: 1, selectedAttributes: [] });
+            addProductToCart({ cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: selected });
         };
 
         return (

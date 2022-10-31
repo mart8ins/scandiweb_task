@@ -76,6 +76,7 @@ export class AppContextProvider extends Component {
     }
 
     render() {
+        console.log(this.state.cart.items, "items");
         return <AppContext.Provider value={this.state}>{this.props.children}</AppContext.Provider>;
     }
 }
