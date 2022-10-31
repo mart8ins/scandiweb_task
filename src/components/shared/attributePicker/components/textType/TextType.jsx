@@ -3,7 +3,7 @@ import "./textType.css";
 
 class TextType extends Component {
     state = {
-        selectedText: "",
+        selectedText: this.props.attribute.items[0].value,
     };
     render() {
         const {

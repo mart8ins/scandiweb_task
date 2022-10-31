@@ -3,7 +3,7 @@ import "./swatchType.css";
 
 class SwatchType extends Component {
     state = {
-        selectedSwatch: "",
+        selectedSwatch: this.props.attribute.items[0].displayValue,
     };
     render() {
         const {
