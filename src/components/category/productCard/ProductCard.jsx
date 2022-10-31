@@ -76,7 +76,7 @@ class ProductCard extends Component {
                         {brand} {name}
                     </div>
                     <div className="price">
-                        {price.currency.symbol}
+                        {price && price.currency.symbol}
                         {price && price.amount}
                     </div>
                 </div>

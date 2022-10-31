@@ -19,7 +19,9 @@ class Actions extends Component {
             });
         };
         const { data } = this.context.currencies;
+        const { showCartOverlay } = this.context.cart;
         const { items, toogleCartView } = this.context.cart;
+
         return (
             <>
                 <div className="actions">
@@ -28,10 +30,12 @@ class Actions extends Component {
                     <div
                         className="currency"
                         onClick={() => {
-                            this.setState({
-                                ...this.state,
-                                showCurrencyOptions: !this.state.showCurrencyOptions,
-                            });
+                            if (!showCartOverlay) {
+                                this.setState({
+                                    ...this.state,
+                                    showCurrencyOptions: !this.state.showCurrencyOptions,
+                                });
+                            }
                         }}>
                         <div className="currency__symbol">
                             <div className="symbol">{this.context.currencies.active.symbol}</div>
