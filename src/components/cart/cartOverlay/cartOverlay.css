@@ -2,7 +2,8 @@
     width: 1440px;
     position: absolute;
     z-index: 3;
-    top: 78px;
+    top: 80px;
+    /* height: 100vh; */
     bottom: 0px;
     background: rgba(57, 55, 72, 0.22);
 }
@@ -80,6 +81,7 @@
 }
 
 .cart__overlay .cart__preview__container .cart__preview .cart__overlay__buttons__container .cart__overlay__button {
+    text-decoration: none;
     width: 140px;
     height: 43px;
     display: flex;

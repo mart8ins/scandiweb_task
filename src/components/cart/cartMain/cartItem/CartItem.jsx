@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import ProductTitle from "../../../shared/productTitle/ProductTitle";
-import SizePicker from "../../../shared/sizePicker/SizePicker";
-import ColorPicker from "../../../shared/colorPicker/ColorPicker";
 import "./cartItem.css";
+import AttributePicker from "../../../shared/attributePicker/AttributePicker";
 import PriceTag from "../../../shared/priceTag/PriceTag";
 import vec_hor from "../../../../icons/Vector-hor.svg";
 import vec_ver from "../../../../icons/Vector-ver.svg";
@@ -12,9 +11,7 @@ import arrow_right from "../../../../icons/Vector-arrow-right.svg";
 
 export class CartItem extends Component {
     render() {
-        const {
-            cartItem: { sizes, colors },
-        } = this.props;
+        const { attributes } = this.props;
 
         return (
             <div className="cart__item__container">
@@ -26,12 +23,7 @@ export class CartItem extends Component {
                         <div className="product__price__tag__container">
                             <PriceTag showTitle={false} />
                         </div>
-                        <div className="product__size__picker__container">
-                            <SizePicker sizes={sizes} />
-                        </div>
-                        <div className="product__color__picker__container">
-                            <ColorPicker colors={colors} />
-                        </div>
+                        <AttributePicker attributes={attributes} forType={null} />
                     </div>
                     <div className="change__quantity__container">
                         <div className="increase__item">

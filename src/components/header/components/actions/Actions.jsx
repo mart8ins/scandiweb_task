@@ -19,6 +19,7 @@ class Actions extends Component {
             });
         };
         const { data } = this.context.currencies;
+        const { items, toogleCartView } = this.context.cart;
         return (
             <>
                 <div className="actions">
@@ -38,11 +39,13 @@ class Actions extends Component {
                         {!this.state.showCurrencyOptions && <img className="vector" src={vector_down} alt="Currency chooser" />}
                         {this.state.showCurrencyOptions && <img className="vector" src={vector_up} alt="Currency chooser" />}
                     </div>
-                    <div className="chart__icon">
+                    <div className="chart__icon" onClick={toogleCartView}>
                         <img src={empty_chart} alt="Empty chart" />
-                        <div className="items__in__cart">
-                            <div className="cart__number">3</div>
-                        </div>
+                        {items.length > 0 && (
+                            <div className="items__in__cart">
+                                <div className="cart__number">{items.length}</div>
+                            </div>
+                        )}
                     </div>
                 </div>
                 {this.state.showCurrencyOptions && <CurrencySwitcher currencies={data} changeActiveCurrency={changeActiveCurrency} />}

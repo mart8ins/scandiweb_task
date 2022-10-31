@@ -1,5 +1,4 @@
-.size__picker .size__title {
-    width: 38px;
+.text__picker .text__title {
     height: 18px;
     font-family: "Roboto Condensed";
     font-style: normal;
@@ -14,13 +13,13 @@
     margin: 0;
 }
 
-.size__picker .size__variants__container {
+.text__picker .text__variants__container {
     display: flex;
     gap: 12px;
     margin-top: 8px;
 }
 
-.size__picker .size__variants__container .size__variants {
+.text__picker .text__variants__container .text__variants {
     box-sizing: border-box;
     width: 63px;
     height: 45px;
@@ -37,24 +36,24 @@
     justify-content: center;
 }
 
-.size__picker .size__variants__container .selected__variant {
+.text__picker .text__variants__container .selected__variant {
     background: #1d1f22;
     border: 1px solid #1d1f22;
     color: #ffffff;
 }
 
-.size__picker .size__variants__container .size__variants:hover {
+.text__picker .text__variants__container .text__variants:hover {
     cursor: pointer;
 }
 
 /* FOR CART OVERLAY */
-.size__picker__overlay .size__title__overlay {
-    width: 30px;
+.text__picker__overlay .text__title__overlay {
+    padding: 5px;
     height: 16px;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 16px;
     display: flex;
     align-items: center;
@@ -62,26 +61,30 @@
     text-transform: capitalize;
 }
 
-.size__picker__overlay .size__variants__container__overlay {
+.text__picker__overlay .text__variants__container__overlay {
     display: flex;
     gap: 8px;
+    margin-top: 0;
 }
 
-.size__picker__overlay .size__variants__container__overlay .size__variants__overlay {
+.text__picker__overlay .text__variants__container__overlay .text__variants__overlay {
     box-sizing: border-box;
-    width: 24px;
+    width: min-content;
+    min-width: 24px;
+    padding: 0 2px;
+    width: auto;
     height: 24px;
     font-size: 14px;
     line-height: 160%;
     letter-spacing: 0em;
 }
 
-.size__picker__overlay .size__variants__container__overlay .selected__variant__overlay {
+.text__picker__overlay .text__variants__container__overlay .selected__variant__overlay {
     background: #1d1f22;
     border: 1px solid #1d1f22;
     color: #ffffff;
 }
 
-.size__picker__overlay .size__variants__container__overlay .size__variants__overlay:hover {
+.text__picker__overlay .text__variants__container__overlay .text__variants__overlay:hover {
     cursor: pointer;
 }

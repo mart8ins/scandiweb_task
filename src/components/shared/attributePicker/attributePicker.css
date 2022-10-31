@@ -1,0 +1,15 @@
+.attribute__picker__container {
+    margin-top: 43px;
+}
+
+.attribute__picker__container .attribute__picker {
+    margin-top: 24px;
+}
+
+.attribute__picker__container__overlay {
+    margin-top: 0px;
+}
+
+.attribute__picker__container__overlay .attribute__picker__overlay {
+    margin-top: 4px;
+}

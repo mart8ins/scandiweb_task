@@ -29,6 +29,26 @@ export class AppContextProvider extends Component {
                 },
             });
         },
+        cart: {
+            showCartOverlay: false,
+            toogleCartView: () => {
+                this.setState({
+                    cart: {
+                        ...this.state.cart,
+                        showCartOverlay: !this.state.cart.showCartOverlay,
+                    },
+                });
+            },
+            items: [],
+            addProductToCart: (product) => {
+                this.setState({
+                    cart: {
+                        ...this.state.cart,
+                        items: [...this.state.cart.items, product],
+                    },
+                });
+            },
+        },
     };
 
     componentDidMount() {
@@ -36,7 +56,7 @@ export class AppContextProvider extends Component {
         this.getCurrencies();
     }
     async getCategories() {
-        const { loading, error, data } = await categoryQuery();
+        const { data } = await categoryQuery();
         this.setState({
             categories: {
                 data: data.categories,
@@ -46,7 +66,7 @@ export class AppContextProvider extends Component {
     }
 
     async getCurrencies() {
-        const { loading, error, data } = await currenciesQuery();
+        const { data } = await currenciesQuery();
         this.setState({
             currencies: {
                 data: data.currencies,

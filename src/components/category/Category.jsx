@@ -11,6 +11,7 @@ class Category extends Component {
         const {
             active: { symbol },
         } = this.context.currencies;
+
         return (
             <div>
                 <h2 className="category__name">{name}</h2>
@@ -35,6 +36,8 @@ class Category extends Component {
                                     stock={product.inStock}
                                     image={product.gallery[0]}
                                     category={product.category}
+                                    attributes={product.attributes}
+                                    brand={product.brand}
                                 />
                             );
                         })}

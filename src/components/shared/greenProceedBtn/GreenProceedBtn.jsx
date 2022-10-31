@@ -3,9 +3,9 @@ import "./greenProceedBtn.css";
 
 class GreenProceedBtn extends Component {
     render() {
-        const { text, styles } = this.props;
+        const { text, styles, onClick } = this.props;
         return (
-            <button style={styles} className="proceed__btn">
+            <button onClick={onClick} style={styles} className="proceed__btn">
                 {text}
             </button>
         );

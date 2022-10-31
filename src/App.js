@@ -4,12 +4,13 @@ import "./App.css";
 import CartMain from "./components/cart/cartMain/CartMain";
 import CartOverlay from "./components/cart/cartOverlay/CartOverlay";
 import Category from "./components/category/Category";
+import { AppContext } from "./components/context";
 import Header from "./components/header/Header";
 import ProductDetailPage from "./components/PDP/ProductDetailPage";
 
 class App extends Component {
     render() {
-        const showCartOverlay = false;
+        const { showCartOverlay } = this.context.cart;
         return (
             <div className="App">
                 <Header />
@@ -24,5 +25,5 @@ class App extends Component {
         );
     }
 }
-
+App.contextType = AppContext;
 export default App;

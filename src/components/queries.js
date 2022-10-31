@@ -29,6 +29,7 @@ export const categoryQuery = () => {
                     products {
                         id
                         name
+                        brand
                         inStock
                         gallery
                         prices {
@@ -38,6 +39,16 @@ export const categoryQuery = () => {
                             amount
                         }
                         category
+                        attributes {
+                            id
+                            name
+                            type
+                            items {
+                                displayValue
+                                value
+                                id
+                            }
+                        }
                     }
                 }
             }
@@ -51,6 +62,7 @@ export const productQuery = (productId) => {
         query: gql`
             query Product {
                 product(id:"${productId}") {
+                    id
                     name
                     brand
                     description

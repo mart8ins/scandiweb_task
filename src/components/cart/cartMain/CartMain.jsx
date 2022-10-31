@@ -1,20 +1,25 @@
 import React, { Component } from "react";
+import { AppContext } from "../../context";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import CartItem from "./cartItem/CartItem";
 import "./cartMain.css";
 
 class CartMain extends Component {
     render() {
-        const cart = [
-            { id: 1, name: "item1", sizes: ["XS", "S"], colors: { grey: "#D3D2D5", green: "#0F6450" } },
-            { id: 2, name: "item2", sizes: ["XS", "S", "M", "L"], colors: { grey: "#D3D2D5", green: "#0F6450", black: "#2B2B2B" } },
-        ];
+        const {
+            cart: { items },
+            currencies: { active },
+        } = this.context;
+        // const cart = [
+        //     { id: 1, name: "item1", sizes: ["XS", "S"], colors: { grey: "#D3D2D5", green: "#0F6450" } },
+        //     { id: 2, name: "item2", sizes: ["XS", "S", "M", "L"], colors: { grey: "#D3D2D5", green: "#0F6450", black: "#2B2B2B" } },
+        // ];
         return (
             <div className="cart__container">
                 <div className="cart__title">Cart</div>
                 <div className="cart__item__line__top"></div>
                 <div className="cart__items__container">
-                    {cart.map((cartItem, i) => {
+                    {items.map((cartItem, i) => {
                         return (
                             <div key={"a" + i}>
                                 <CartItem key={i} cartItem={cartItem} />
@@ -47,5 +52,5 @@ class CartMain extends Component {
         );
     }
 }
-
+CartMain.contextType = AppContext;
 export default CartMain;

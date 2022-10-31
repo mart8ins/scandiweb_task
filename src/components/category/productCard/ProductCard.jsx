@@ -11,14 +11,19 @@ class ProductCard extends Component {
     };
 
     render() {
+        const { addProductToCart } = this.context.cart;
+        const { price, brand, name, stock, image, id, category, attributes } = this.props;
+
+        /* ADD PRODUCT TO CART WITH QUANTITY = 1, ADDING MULTIPLE CREATES NEW PRODUCT IN CART AND NOT CHANGE
+         QUANTITY TO EXISITING BECAUSE CLIENT COULD WANT TO ORDER SAME PRODUCT WITH DIFFERENT ATTRIBUTES */
         const addToCart = () => {
-            console.log("Pielikt grozan");
-        };
-        const visitProduct = () => {
-            console.log("Doties uz produktu");
+            const selected = attributes.map((attr) => {
+                return attr;
+            });
+            // console.log(selected, "selected");
+            addProductToCart({ cartProductId: id, quantity: 1, selectedAttributes: [] });
         };
 
-        const { price, name, stock, image, id, category } = this.props;
         return (
             <Link
                 to={this.state.hoverOnIcon ? undefined : `/${category}/${id}`}
@@ -33,8 +38,7 @@ class ProductCard extends Component {
                     this.setState({
                         hover: false,
                     });
-                }}
-                onClick={!this.state.hoverOnIcon && this.state.hover ? visitProduct : undefined}>
+                }}>
                 <div className="product__image__container">
                     {!stock && (
                         <div className="out__of__stock__overlay">
@@ -68,8 +72,13 @@ class ProductCard extends Component {
                 <div className="space__base"></div>
 
                 <div className="content">
-                    <div className="title">{name}</div>
-                    <div className="price">${price && price.amount}</div>
+                    <div className="title">
+                        {brand} {name}
+                    </div>
+                    <div className="price">
+                        {price.currency.symbol}
+                        {price && price.amount}
+                    </div>
                 </div>
             </Link>
         );
