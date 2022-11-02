@@ -5,7 +5,7 @@ import TextType from "./components/textType/TextType";
 
 class AttributePicker extends Component {
     render() {
-        const { attributes, forType } = this.props;
+        const { attributes, selectedAttributes, forType, addSelectedAttribute, cartItemId } = this.props;
         return (
             <div className={`attribute__picker__container ${forType && forType === "overlay" && "attribute__picker__container__overlay"}`}>
                 {attributes &&
@@ -15,7 +15,13 @@ class AttributePicker extends Component {
                                 <div
                                     key={"attr-text-" + i}
                                     className={`attribute__picker ${forType && forType === "overlay" && "attribute__picker__overlay"}`}>
-                                    <TextType attribute={attribute} forType={forType} />
+                                    <TextType
+                                        attribute={attribute}
+                                        selectedAttributes={selectedAttributes}
+                                        addSelectedAttribute={addSelectedAttribute}
+                                        forType={forType}
+                                        cartItemId={cartItemId}
+                                    />
                                 </div>
                             );
                         }
@@ -24,7 +30,13 @@ class AttributePicker extends Component {
                                 <div
                                     key={"attr-swatch-" + i}
                                     className={`attribute__picker ${forType && forType === "overlay" && "attribute__picker__overlay"}`}>
-                                    <SwatchType attribute={attribute} forType={forType} />
+                                    <SwatchType
+                                        attribute={attribute}
+                                        selectedAttributes={selectedAttributes}
+                                        addSelectedAttribute={addSelectedAttribute}
+                                        forType={forType}
+                                        cartItemId={cartItemId}
+                                    />
                                 </div>
                             );
                         }

@@ -1,14 +1,38 @@
 import React, { Component } from "react";
+import { AppContext } from "../../../../context";
 import "./textType.css";
 
 class TextType extends Component {
     state = {
         selectedText: this.props.attribute.items[0].value,
+        cartItemId: this.props.cartItemId,
     };
+
+    componentDidMount() {
+        const { attribute, selectedAttributes } = this.props;
+        const {
+            cart: { showCartOverlay, addDefaultAttributeToCartitem },
+        } = this.context;
+
+        if (selectedAttributes && selectedAttributes.length) {
+            selectedAttributes.forEach((sel) => {
+                if (attribute.id === sel.id) {
+                    this.setState({
+                        selectedText: sel.item.value,
+                    });
+                }
+            });
+        }
+        if (showCartOverlay) {
+            addDefaultAttributeToCartitem(this.state.cartItemId, attribute);
+        }
+    }
+
     render() {
         const {
             forType,
-            attribute: { items, name },
+            attribute: { items, name, id },
+            addSelectedAttribute,
         } = this.props;
         return (
             <div className={`text__picker ${forType && "text__picker__" + forType}`}>
@@ -18,9 +42,15 @@ class TextType extends Component {
                         items.map((size, i) => {
                             return (
                                 <div
-                                    key={size.id}
+                                    key={`text-${size.id}`}
                                     onClick={() => {
-                                        this.setState({ ...this.state, selectedText: size.value });
+                                        this.setState({ selectedText: size.value });
+                                        if (addSelectedAttribute) {
+                                            addSelectedAttribute({
+                                                id: id,
+                                                item: size,
+                                            });
+                                        }
                                     }}
                                     className={`text__variants ${forType && "text__variants__" + forType} ${
                                         (!forType && this.state.selectedText === size.value && "selected__variant") ||
@@ -36,4 +66,5 @@ class TextType extends Component {
     }
 }
 
+TextType.contextType = AppContext;
 export default TextType;

@@ -1,14 +1,37 @@
 import React, { Component } from "react";
+import { AppContext } from "../../../../context";
 import "./swatchType.css";
 
 class SwatchType extends Component {
     state = {
         selectedSwatch: this.props.attribute.items[0].displayValue,
     };
+
+    componentDidMount() {
+        const { attribute, selectedAttributes } = this.props;
+        const {
+            cart: { showCartOverlay, addDefaultAttributeToCartitem },
+        } = this.context;
+
+        if (selectedAttributes && selectedAttributes.length) {
+            selectedAttributes.forEach((sel) => {
+                if (attribute.id === sel.id) {
+                    this.setState({
+                        selectedSwatch: sel.item.value,
+                    });
+                }
+            });
+        }
+        if (showCartOverlay) {
+            addDefaultAttributeToCartitem(this.state.cartItemId, attribute);
+        }
+    }
+
     render() {
         const {
-            attribute: { name, items },
+            attribute: { id, name, items },
             forType,
+            addSelectedAttribute,
         } = this.props;
         return (
             <div className={`swatch__picker ${forType && "swatch__picker__" + forType}`}>
@@ -18,11 +41,17 @@ class SwatchType extends Component {
                         items.map((item) => {
                             return (
                                 <div
-                                    key={item.id}
+                                    key={`swatch-${item.id}`}
                                     onClick={() => {
                                         this.setState({
                                             selectedSwatch: item.displayValue,
                                         });
+                                        if (addSelectedAttribute) {
+                                            addSelectedAttribute({
+                                                id: id,
+                                                item: item,
+                                            });
+                                        }
                                     }}
                                     id={`${this.state.selectedSwatch === item.displayValue && "selected__border"}`}
                                     className={`swatch__variants ${forType && "swatch__variants__" + forType}`}>
@@ -37,5 +66,5 @@ class SwatchType extends Component {
         );
     }
 }
-
+SwatchType.contextType = AppContext;
 export default SwatchType;

@@ -26,10 +26,9 @@ class CartItemOverlay extends Component {
     }
 
     render() {
-        const { cartProductId, quantity, selectedAttributes } = this.props.cartItem;
+        const { cartProductId, quantity, selectedAttributes, cartItemId } = this.props.cartItem;
         const { brand, attributes, gallery, name, prices } = this.state.product;
         const image = gallery && gallery[0];
-
         return (
             <div className="cart__item__container__ov">
                 <div className="cart__item__details__ov">
@@ -38,7 +37,12 @@ class CartItemOverlay extends Component {
                             <ProductTitle forType="overlay" name={name} brand={brand} />
                             <PriceTag showTitle={false} forType="overlay" prices={prices} />
                         </div>
-                        <AttributePicker attributes={attributes} forType={"overlay"} />
+                        <AttributePicker
+                            attributes={attributes}
+                            selectedAttributes={selectedAttributes}
+                            forType={"overlay"}
+                            cartItemId={cartItemId}
+                        />
                     </div>
                     <div className="change__quantity__container__ov">
                         <div className="increase__item__ov">

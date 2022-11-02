@@ -18,14 +18,7 @@ class ProductCard extends Component {
         /* ADD PRODUCT TO CART WITH QUANTITY = 1, ADDING MULTIPLE CREATES NEW PRODUCT IN CART AND NOT CHANGE
          QUANTITY TO EXISITING BECAUSE CLIENT COULD WANT TO ORDER SAME PRODUCT WITH DIFFERENT ATTRIBUTES */
         const addToCart = () => {
-            const selected = attributes.map((attr) => {
-                console.log(attr);
-                return {
-                    id: attr.id,
-                    item: attr.items[0],
-                };
-            });
-            addProductToCart({ cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: selected });
+            addProductToCart({ cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: [] });
         };
 
         return (

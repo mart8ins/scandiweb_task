@@ -12,8 +12,18 @@ class ProductDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            attributes: [],
+            selectedAttributes: [],
+            cartItemId: uuidv4(),
         };
+
+        this.addSelectedAttribute = this.addSelectedAttribute.bind(this);
+    }
+
+    addSelectedAttribute(attr) {
+        this.setState({
+            ...this.state,
+            selectedAttributes: [...this.state.selectedAttributes, attr],
+        });
     }
 
     render() {
@@ -23,14 +33,12 @@ class ProductDetails extends Component {
         const { addProductToCart } = this.context.cart;
 
         const addToCart = () => {
-            const selected = attributes.map((attr) => {
-                console.log(attr);
-                return {
-                    id: attr.id,
-                    item: attr.items[0],
-                };
+            addProductToCart({
+                cartItemId: this.state.cartItemId,
+                productId: id,
+                quantity: 1,
+                selectedAttributes: this.state.selectedAttributes,
             });
-            addProductToCart({ cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: selected });
         };
 
         return (
@@ -39,7 +47,7 @@ class ProductDetails extends Component {
                     <ProductTitle name={name} brand={brand} />
                 </div>
 
-                <AttributePicker attributes={attributes} forType={null} />
+                <AttributePicker attributes={attributes} forType={null} addSelectedAttribute={this.addSelectedAttribute} />
 
                 <div className="product__price__tag__container">
                     <PriceTag showTitle={true} prices={prices} />

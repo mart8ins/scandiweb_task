@@ -62,7 +62,7 @@ class DetailsImages extends Component {
                             return (
                                 <img
                                     onClick={() => this.changeMainImage(i)}
-                                    key={`image-${i}`}
+                                    key={`image-details-${i}`}
                                     className="side__image"
                                     src={image}
                                     alt="Product image option"

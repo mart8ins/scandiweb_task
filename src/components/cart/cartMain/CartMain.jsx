@@ -21,7 +21,7 @@ class CartMain extends Component {
                 <div className="cart__items__container">
                     {items.map((cartItem, i) => {
                         return (
-                            <div key={"a" + i}>
+                            <div key={"cartmain-" + i}>
                                 <CartItem key={i} cartItem={cartItem} />
                                 <div className="cart__item__line"></div>
                             </div>

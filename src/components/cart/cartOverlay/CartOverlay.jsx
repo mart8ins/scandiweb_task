@@ -20,7 +20,7 @@ class CartOverlay extends Component {
                         </div>
                         {items &&
                             items.map((cartItem, i) => {
-                                return <CartItemOverlay key={"cartItem-" + i} cartItem={cartItem} />;
+                                return <CartItemOverlay key={"cartItemOverlay-" + i} cartItem={cartItem} />;
                             })}
                         <div className="cart__overlay__totals__container">
                             <div className="cart__overlay__totals__title">Total</div>
