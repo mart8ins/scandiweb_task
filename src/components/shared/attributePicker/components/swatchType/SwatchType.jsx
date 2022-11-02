@@ -17,7 +17,7 @@ class SwatchType extends Component {
             selectedAttributes.forEach((sel) => {
                 if (attribute.id === sel.id) {
                     this.setState({
-                        selectedSwatch: sel.item.value,
+                        selectedSwatch: sel.item.displayValue,
                     });
                 }
             });

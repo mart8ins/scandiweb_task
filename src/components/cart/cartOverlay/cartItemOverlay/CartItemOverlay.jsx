@@ -26,6 +26,7 @@ class CartItemOverlay extends Component {
     }
 
     render() {
+        const { changeQuantityForItemInCart } = this.context.cart;
         const { cartProductId, quantity, selectedAttributes, cartItemId } = this.props.cartItem;
         const { brand, attributes, gallery, name, prices } = this.state.product;
         const image = gallery && gallery[0];
@@ -45,12 +46,20 @@ class CartItemOverlay extends Component {
                         />
                     </div>
                     <div className="change__quantity__container__ov">
-                        <div className="increase__item__ov">
+                        <div
+                            className="increase__item__ov"
+                            onClick={() => {
+                                changeQuantityForItemInCart(cartItemId, "increase");
+                            }}>
                             <img src={vec_hor_sm} alt="Increase quantity button" />
                             <img className="vertical__line__ov" src={vec_ver_sm} alt="Increase quantity button" />
                         </div>
                         <div className="item__quantity__ov">{quantity}</div>
-                        <div className="decrease__item__ov">
+                        <div
+                            className="decrease__item__ov"
+                            onClick={() => {
+                                changeQuantityForItemInCart(cartItemId, "decrease");
+                            }}>
                             <img src={vec_hor_sm} alt="Decrease quantity button" />
                         </div>
                     </div>

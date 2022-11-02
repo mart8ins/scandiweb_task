@@ -11,6 +11,7 @@ class CartOverlay extends Component {
             cart: { items },
             currencies: { active },
         } = this.context;
+
         return (
             <div className="cart__overlay">
                 <div className="cart__preview__container">

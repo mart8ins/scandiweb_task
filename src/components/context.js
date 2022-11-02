@@ -76,6 +76,38 @@ export class AppContextProvider extends Component {
                     });
                 }
             },
+            changeQuantityForItemInCart: (cartItemId, action) => {
+                let itemIndex;
+                let cartItems = this.state.cart.items;
+                const cartItem = cartItems.filter((item, i) => {
+                    if (cartItemId == item.cartItemId) {
+                        itemIndex = i;
+                        return item;
+                    }
+                })[0];
+                if (cartItem) {
+                    if (action == "increase") {
+                        cartItem.quantity = cartItem.quantity + 1;
+                        cartItems.splice(itemIndex, 1, cartItem);
+                    }
+                    if (action == "decrease") {
+                        if (cartItem.quantity > 1) {
+                            cartItem.quantity = cartItem.quantity - 1;
+                            cartItems.splice(itemIndex, 1, cartItem);
+                        }
+                    }
+                    if (action == "decrease" && cartItem.quantity == 1) {
+                        cartItems.splice(itemIndex, 1);
+                    }
+                    this.setState({
+                        ...this.state,
+                        cart: {
+                            ...this.state.cart,
+                            items: cartItems,
+                        },
+                    });
+                }
+            },
         },
     };
 
@@ -104,7 +136,7 @@ export class AppContextProvider extends Component {
     }
 
     render() {
-        console.log(this.state.cart.items, "CART ITEMS");
+        // console.log(this.state.cart.items, "CART ITEMS");
         return <AppContext.Provider value={this.state}>{this.props.children}</AppContext.Provider>;
     }
 }
