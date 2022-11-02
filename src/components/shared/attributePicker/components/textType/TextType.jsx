@@ -8,7 +8,7 @@ class TextType extends Component {
         cartItemId: this.props.cartItemId,
     };
 
-    componentDidMount() {
+    handleAttributes() {
         const { attribute, selectedAttributes } = this.props;
         const {
             cart: { showCartOverlay, addDefaultAttributeToCartitem },
@@ -25,6 +25,16 @@ class TextType extends Component {
         }
         if (showCartOverlay) {
             addDefaultAttributeToCartitem(this.state.cartItemId, attribute);
+        }
+    }
+
+    componentDidMount() {
+        this.handleAttributes();
+    }
+
+    componentDidUpdate(prev) {
+        if (prev.attributes != this.props.attributes || prev.selectedAttributes != this.props.selectedAttributes) {
+            this.handleAttributes();
         }
     }
 

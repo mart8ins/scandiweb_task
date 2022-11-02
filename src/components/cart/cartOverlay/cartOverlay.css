@@ -3,7 +3,6 @@
     position: absolute;
     z-index: 3;
     top: 80px;
-    /* height: 100vh; */
     bottom: 0px;
     background: rgba(57, 55, 72, 0.22);
 }
@@ -101,4 +100,15 @@
 
 .cart__overlay .cart__preview__container .cart__preview .cart__overlay__buttons__container .cart__overlay__button:hover {
     cursor: pointer;
+}
+
+.cart__overlay .cart__preview__container .empty__cart {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
 }

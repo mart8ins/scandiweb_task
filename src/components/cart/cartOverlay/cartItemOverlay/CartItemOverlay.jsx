@@ -17,6 +17,12 @@ class CartItemOverlay extends Component {
         this.getDetails();
     }
 
+    componentDidUpdate(previousProps) {
+        if (this.props.cartItem.cartItemId != previousProps.cartItem.cartItemId) {
+            this.getDetails();
+        }
+    }
+
     async getDetails() {
         const { productId } = this.props.cartItem;
         const { data } = await productQuery(productId);
@@ -27,7 +33,7 @@ class CartItemOverlay extends Component {
 
     render() {
         const { changeQuantityForItemInCart } = this.context.cart;
-        const { cartProductId, quantity, selectedAttributes, cartItemId } = this.props.cartItem;
+        const { quantity, selectedAttributes, cartItemId } = this.props.cartItem;
         const { brand, attributes, gallery, name, prices } = this.state.product;
         const image = gallery && gallery[0];
         return (

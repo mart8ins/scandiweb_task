@@ -13,7 +13,6 @@ class ProductDetails extends Component {
         super(props);
         this.state = {
             selectedAttributes: [],
-            cartItemId: uuidv4(),
         };
 
         this.addSelectedAttribute = this.addSelectedAttribute.bind(this);
@@ -34,7 +33,7 @@ class ProductDetails extends Component {
 
         const addToCart = () => {
             addProductToCart({
-                cartItemId: this.state.cartItemId,
+                cartItemId: uuidv4(),
                 productId: id,
                 quantity: 1,
                 selectedAttributes: this.state.selectedAttributes,

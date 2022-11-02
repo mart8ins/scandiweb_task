@@ -11,6 +11,7 @@ import ProductDetailPage from "./components/PDP/ProductDetailPage";
 class App extends Component {
     render() {
         const { showCartOverlay } = this.context.cart;
+
         return (
             <div className="App">
                 <Header />

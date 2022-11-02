@@ -94,10 +94,9 @@ export class AppContextProvider extends Component {
                         if (cartItem.quantity > 1) {
                             cartItem.quantity = cartItem.quantity - 1;
                             cartItems.splice(itemIndex, 1, cartItem);
+                        } else {
+                            cartItems.splice(itemIndex, 1);
                         }
-                    }
-                    if (action == "decrease" && cartItem.quantity == 1) {
-                        cartItems.splice(itemIndex, 1);
                     }
                     this.setState({
                         ...this.state,
