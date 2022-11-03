@@ -52,7 +52,7 @@ export class AppContextProvider extends Component {
                 let itemIndex;
                 const cartItems = this.state.cart.items;
                 const cartItem = cartItems.filter((item, i) => {
-                    if (cartItemId === item.cartItemId) {
+                    if (cartItemId == item.cartItemId) {
                         itemIndex = i;
                         return item.cartItemId;
                     }

@@ -1,8 +1,10 @@
 .cart__item__container {
-    height: 337px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     position: relative;
+    min-height: 337px;
+    padding-bottom: 10px;
 }
 
 .cart__item__container .cart__item__details {
@@ -19,9 +21,9 @@
     margin-top: 12px;
 }
 
-.cart__item__container .cart__item__details .change__quantity__container {
+.cart__item__container .image__quantity .change__quantity__container {
     width: 45px;
-    height: 288px;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,32 +31,31 @@
     position: relative;
 }
 
-.cart__item__container .cart__item__details .change__quantity__container .increase__item,
+.cart__item__container .image__quantity .change__quantity__container .increase__item,
 .item__quantity,
 .decrease__item {
     width: 45px;
     height: 45px;
     box-sizing: border-box;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.cart__item__container .cart__item__details .change__quantity__container .increase__item,
+.cart__item__container .image__quantity .change__quantity__container .increase__item,
 .decrease__item {
     border: 1px solid #1d1f22;
 }
 
-.cart__item__container .cart__item__details .change__quantity__container .increase__item .vertical__line {
+.cart__item__container .image__quantity .change__quantity__container .increase__item .vertical__line {
     position: absolute;
 }
 
-.cart__item__container .cart__item__details .change__quantity__container:hover .increase__item,
+.cart__item__container .image__quantity .change__quantity__container:hover .increase__item,
 .decrease__item {
     cursor: pointer;
 }
 
-.cart__item__container .cart__item__details .change__quantity__container .item__quantity {
+.cart__item__container .image__quantity .change__quantity__container .item__quantity {
     font-family: "Raleway";
     font-style: normal;
     font-weight: 500;
@@ -63,20 +64,29 @@
     color: #1d1f22;
 }
 
-.cart__item__container .item__image__container {
+.cart__item__container .image__quantity {
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+    max-height: 367px;
+    margin-top: 16px;
+}
+
+.cart__item__container .image__quantity .item__image__container {
     width: 200px;
-    height: 288px;
+    height: 337px;
+    height: 90%;
     position: relative;
-    align-self: center;
     margin-left: 24px;
 }
-.cart__item__container .item__image__container img {
+.cart__item__container .image__quantity .item__image__container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.cart__item__container .item__image__container .change__image {
+.cart__item__container .image__quantity .item__image__container .change__image {
     position: absolute;
     width: 56px;
     height: 24px;
@@ -86,7 +96,7 @@
     right: 16px;
 }
 
-.cart__item__container .item__image__container .change__image .image__to__left,
+.cart__item__container .image__quantity .item__image__container .change__image .image__to__left,
 .image__to__right {
     width: 24px;
     height: 24px;
@@ -96,16 +106,16 @@
     align-items: center;
 }
 
-.cart__item__container .item__image__container .change__image:hover .image__to__left,
+.cart__item__container .image__quantity .item__image__container .change__image:hover .image__to__left,
 .image__to__right {
     cursor: pointer;
 }
 
-.cart__item__container .item__image__container .change__image .image__to__left .vector__container {
+.cart__item__container .image__quantity .item__image__container .change__image .image__to__left .vector__container {
     position: relative;
     padding-right: 2px;
 }
-.cart__item__container .item__image__container .change__image .image__to__right .vector__container {
+.cart__item__container .image__quantity .item__image__container .change__image .image__to__right .vector__container {
     position: relative;
     padding-left: 2px;
 }

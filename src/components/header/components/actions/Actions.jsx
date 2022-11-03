@@ -43,7 +43,7 @@ class Actions extends Component {
                         {!this.state.showCurrencyOptions && <img className="vector" src={vector_down} alt="Currency chooser" />}
                         {this.state.showCurrencyOptions && <img className="vector" src={vector_up} alt="Currency chooser" />}
                     </div>
-                    <div className="chart__icon" onClick={toogleCartView}>
+                    <div className="chart__icon" onClick={window.location.pathname != "/cart" ? toogleCartView : null}>
                         <img src={empty_chart} alt="Empty chart" />
                         {items.length > 0 && (
                             <div className="items__in__cart">

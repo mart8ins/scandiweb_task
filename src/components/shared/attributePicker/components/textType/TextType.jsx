@@ -6,6 +6,7 @@ class TextType extends Component {
     state = {
         selectedText: this.props.attribute.items[0].value,
         cartItemId: this.props.cartItemId,
+        items: [],
     };
 
     handleAttributes() {
@@ -18,6 +19,7 @@ class TextType extends Component {
             selectedAttributes.forEach((sel) => {
                 if (attribute.id === sel.id) {
                     this.setState({
+                        ...this.state,
                         selectedText: sel.item.value,
                     });
                 }
@@ -30,10 +32,14 @@ class TextType extends Component {
 
     componentDidMount() {
         this.handleAttributes();
+        this.setState({
+            ...this.state,
+            items: this.props.attribute.items,
+        });
     }
 
-    componentDidUpdate(prev) {
-        if (prev.attributes != this.props.attributes || prev.selectedAttributes != this.props.selectedAttributes) {
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.attributes != this.props.attributes || prevProps.selectedAttributes != this.props.selectedAttributes) {
             this.handleAttributes();
         }
     }
@@ -44,17 +50,18 @@ class TextType extends Component {
             attribute: { items, name, id },
             addSelectedAttribute,
         } = this.props;
+
         return (
             <div className={`text__picker ${forType && "text__picker__" + forType}`}>
                 <p className={`text__title ${forType && "text__title__" + forType}`}>{name}:</p>
                 <div className={`text__variants__container ${forType && "text__variants__container__" + forType}`}>
-                    {items &&
-                        items.map((size, i) => {
+                    {this.state.items &&
+                        this.state.items.map((size, i) => {
                             return (
                                 <div
                                     key={`text-${size.id}`}
                                     onClick={() => {
-                                        this.setState({ selectedText: size.value });
+                                        this.setState({ ...this.state, selectedText: size.value });
                                         if (addSelectedAttribute) {
                                             addSelectedAttribute({
                                                 id: id,

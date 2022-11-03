@@ -36,6 +36,7 @@ class CartItemOverlay extends Component {
         const { quantity, selectedAttributes, cartItemId } = this.props.cartItem;
         const { brand, attributes, gallery, name, prices } = this.state.product;
         const image = gallery && gallery[0];
+
         return (
             <div className="cart__item__container__ov">
                 <div className="cart__item__details__ov">

@@ -1,9 +1,9 @@
 .cart__container .cart__title {
-    position: absolute;
+    position: relative;
     width: 84px;
     height: 40px;
     left: 100px;
-    top: 160px;
+    top: 80px;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 700;
@@ -13,18 +13,28 @@
     color: #1d1f22;
 }
 
+.cart__container .cart__item__line__top {
+    position: relative;
+    width: 1240px;
+    height: 1px;
+    top: 175px;
+    left: 100px;
+    background: #e5e5e5;
+}
+
 .cart__container .cart__items__container {
-    position: absolute;
+    position: relative;
     width: 1240px;
     left: 100px;
-    top: 256px;
+    top: 175px;
+    padding-bottom: 150px;
 }
 
 .cart__container .cart__item__line__top {
-    position: absolute;
+    position: relative;
     width: 1240px;
     height: 1px;
-    top: 255px;
+    top: 175px;
     left: 100px;
     background: #e5e5e5;
 }
@@ -37,6 +47,7 @@
 }
 
 .cart__container .cart__items__container .cart__totals__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

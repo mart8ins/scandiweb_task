@@ -5,6 +5,7 @@ import "./swatchType.css";
 class SwatchType extends Component {
     state = {
         selectedSwatch: this.props.attribute.items[0].displayValue,
+        cartItemId: this.props.cartItemId,
     };
 
     componentDidMount() {
@@ -17,6 +18,7 @@ class SwatchType extends Component {
             selectedAttributes.forEach((sel) => {
                 if (attribute.id === sel.id) {
                     this.setState({
+                        ...this.state,
                         selectedSwatch: sel.item.displayValue,
                     });
                 }
@@ -44,6 +46,7 @@ class SwatchType extends Component {
                                     key={`swatch-${item.id}`}
                                     onClick={() => {
                                         this.setState({
+                                            ...this.state,
                                             selectedSwatch: item.displayValue,
                                         });
                                         if (addSelectedAttribute) {

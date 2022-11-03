@@ -7,14 +7,12 @@ class AttributePicker extends Component {
     render() {
         const { attributes, selectedAttributes, forType, addSelectedAttribute, cartItemId } = this.props;
         return (
-            <div className={`attribute__picker__container ${forType && forType === "overlay" && "attribute__picker__container__overlay"}`}>
+            <div className={`attribute__picker__container ${forType && "attribute__picker__container__" + forType}`}>
                 {attributes &&
                     attributes.map((attribute, i) => {
                         if (attribute.type === "text") {
                             return (
-                                <div
-                                    key={"attr-text-" + i}
-                                    className={`attribute__picker ${forType && forType === "overlay" && "attribute__picker__overlay"}`}>
+                                <div key={"attr-text-" + i} className={`attribute__picker ${forType && "attribute__picker__" + forType}`}>
                                     <TextType
                                         attribute={attribute}
                                         selectedAttributes={selectedAttributes}
