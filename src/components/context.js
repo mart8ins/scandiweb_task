@@ -112,7 +112,6 @@ export class AppContextProvider extends Component {
 
     componentDidMount() {
         this.getCategories();
-        this.getCurrencies();
     }
     async getCategories() {
         const { data } = await categoryQuery();
@@ -120,16 +119,6 @@ export class AppContextProvider extends Component {
             categories: {
                 data: data.categories,
                 active: data.categories[0],
-            },
-        });
-    }
-
-    async getCurrencies() {
-        const { data } = await currenciesQuery();
-        this.setState({
-            currencies: {
-                data: data.currencies,
-                active: data.currencies[0],
             },
         });
     }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./currencySwitcher.css";
-import { AppContext } from "../../../../context";
 
 class CurrencySwitcher extends Component {
     render() {
