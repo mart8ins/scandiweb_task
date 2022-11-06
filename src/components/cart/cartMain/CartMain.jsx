@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { AppContext } from "../../context";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import CartItem from "./cartItem/CartItem";
@@ -29,7 +30,7 @@ class CartMain extends Component {
                     {this.state.items &&
                         this.state.items.map((cartItem, i) => {
                             return (
-                                <div key={"cartmain-" + i}>
+                                <div key={uuidv4()}>
                                     <CartItem cartItem={cartItem} />
                                     <div className="cart__item__line"></div>
                                 </div>

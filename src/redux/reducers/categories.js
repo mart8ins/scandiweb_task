@@ -1,11 +1,22 @@
+import { categoryAction } from "../actions/categories";
+
 const intitialState = {
-    categories: [],
+    data: [],
+    active: {},
 };
 
-const categoryReducer = (state = intitialState, action) => {
+export const categoryReducer = (state = intitialState, action) => {
     switch (action.type) {
-        case "some":
-            return null;
+        case categoryAction.GET__CATEGORIES__DATA:
+            return (state = {
+                data: action.payload,
+                active: action.payload[0],
+            });
+        case categoryAction.SET__ACTIVE__CATEGORY:
+            return (state = {
+                ...state,
+                active: action.payload,
+            });
         default:
             return state;
     }

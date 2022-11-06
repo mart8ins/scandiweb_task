@@ -9,14 +9,6 @@ export class AppContextProvider extends Component {
             data: [],
             active: {},
         },
-        setActiveCurrency: (active) => {
-            this.setState({
-                currencies: {
-                    ...this.state.currencies,
-                    active: active,
-                },
-            });
-        },
         categories: {
             data: [],
             active: {},

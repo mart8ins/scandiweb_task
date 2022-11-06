@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { AppContext } from "../../../../context";
 import "./swatchType.css";
 
@@ -43,7 +44,7 @@ class SwatchType extends Component {
                         items.map((item) => {
                             return (
                                 <div
-                                    key={`swatch-${item.id}`}
+                                    key={uuidv4()}
                                     onClick={() => {
                                         this.setState({
                                             ...this.state,

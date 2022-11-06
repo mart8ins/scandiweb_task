@@ -13,7 +13,7 @@ class ProductCard extends Component {
 
     render() {
         const { addProductToCart } = this.context.cart;
-        const { price, brand, name, stock, image, id, category, attributes } = this.props;
+        const { price, brand, name, stock, image, id, category } = this.props;
 
         /* ADD PRODUCT TO CART WITH QUANTITY = 1, ADDING MULTIPLE CREATES NEW PRODUCT IN CART AND NOT CHANGE
          QUANTITY TO EXISITING BECAUSE CLIENT COULD WANT TO ORDER SAME PRODUCT WITH DIFFERENT ATTRIBUTES */

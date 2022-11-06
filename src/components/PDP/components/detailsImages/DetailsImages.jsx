@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./detailsImages.css";
 
 class DetailsImages extends Component {
@@ -62,7 +63,7 @@ class DetailsImages extends Component {
                             return (
                                 <img
                                     onClick={() => this.changeMainImage(i)}
-                                    key={`image-details-${i}`}
+                                    key={uuidv4()}
                                     className="side__image"
                                     src={image}
                                     alt="Product image option"

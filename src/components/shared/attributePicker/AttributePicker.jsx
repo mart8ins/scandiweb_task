@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./attributePicker.css";
 import SwatchType from "./components/swatchType/SwatchType";
 import TextType from "./components/textType/TextType";
@@ -12,7 +13,7 @@ class AttributePicker extends Component {
                     attributes.map((attribute, i) => {
                         if (attribute.type === "text") {
                             return (
-                                <div key={"attr-text-" + i} className={`attribute__picker ${forType && "attribute__picker__" + forType}`}>
+                                <div key={uuidv4()} className={`attribute__picker ${forType && "attribute__picker__" + forType}`}>
                                     <TextType
                                         attribute={attribute}
                                         selectedAttributes={selectedAttributes}
@@ -26,7 +27,7 @@ class AttributePicker extends Component {
                         if (attribute.type === "swatch") {
                             return (
                                 <div
-                                    key={"attr-swatch-" + i}
+                                    key={uuidv4()}
                                     className={`attribute__picker ${forType && forType === "overlay" && "attribute__picker__overlay"}`}>
                                     <SwatchType
                                         attribute={attribute}

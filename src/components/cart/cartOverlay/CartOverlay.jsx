@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
 import "./cartOverlay.css";
 import CartItemOverlay from "./cartItemOverlay/CartItemOverlay";
@@ -22,7 +23,7 @@ class CartOverlay extends Component {
                             </div>
                             {items &&
                                 items.map((cartItem, i) => {
-                                    return <CartItemOverlay key={"cartItemOverlay-" + i} cartItem={cartItem} />;
+                                    return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
                                 })}
                             <div className="cart__overlay__totals__container">
                                 <div className="cart__overlay__totals__title">Total</div>

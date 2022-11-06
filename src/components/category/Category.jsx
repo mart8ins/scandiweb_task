@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import { AppContext } from "../context";
+import { v4 as uuidv4 } from "uuid";
+import { connect } from "react-redux";
 import "./category.css";
 import ProductCard from "./productCard/ProductCard";
 
 class Category extends Component {
     render() {
-        const {
-            active: { name, products },
-        } = this.context.categories;
-        const {
-            active: { symbol },
-        } = this.context.currencies;
+        const { name, products } = this.props.categoryReducer.active;
+        const { symbol } = this.props.currencyReducer.active;
 
         return (
             <div>
@@ -29,14 +26,13 @@ class Category extends Component {
                                 })[0];
                             return (
                                 <ProductCard
-                                    key={product.id}
+                                    key={uuidv4()}
                                     id={product.id}
                                     name={product.name}
                                     price={activePrice}
                                     stock={product.inStock}
                                     image={product.gallery[0]}
                                     category={product.category}
-                                    attributes={product.attributes}
                                     brand={product.brand}
                                 />
                             );
@@ -46,5 +42,7 @@ class Category extends Component {
         );
     }
 }
-Category.contextType = AppContext;
-export default Category;
+const mapStateToProps = (state) => {
+    return state;
+};
+export default connect(mapStateToProps)(Category);

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { categoryAction } from "../../../../redux/actions/categories";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import "./navigation.css";
-import { AppContext } from "../../../context.js";
 
 class Navigation extends Component {
     render() {
-        const { data, active } = this.context.categories;
-        const { setActiveCategory } = this.context;
-
+        const { data, active, dispatch } = this.props;
         return (
             <div className="navigation">
                 <div className="header__navigation">
@@ -15,7 +15,7 @@ class Navigation extends Component {
                         data.map((category) => {
                             return (
                                 <div
-                                    key={category.name}
+                                    key={uuidv4()}
                                     className="navigation__element"
                                     style={{
                                         borderBottom: active.name === category.name && "2px solid #5ece7b",
@@ -23,8 +23,10 @@ class Navigation extends Component {
                                     <Link
                                         to="/"
                                         onClick={() => {
-                                            this.setState({ active: category.name });
-                                            setActiveCategory(category);
+                                            dispatch({
+                                                type: categoryAction.SET__ACTIVE__CATEGORY,
+                                                payload: category,
+                                            });
                                         }}
                                         className="label"
                                         style={{
@@ -40,6 +42,8 @@ class Navigation extends Component {
         );
     }
 }
-Navigation.contextType = AppContext;
 
-export default Navigation;
+const mapStateToProps = (state) => {
+    return state.categoryReducer;
+};
+export default connect(mapStateToProps)(Navigation);

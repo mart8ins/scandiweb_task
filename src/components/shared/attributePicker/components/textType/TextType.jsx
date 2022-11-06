@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { AppContext } from "../../../../context";
 import "./textType.css";
 
@@ -59,7 +60,7 @@ class TextType extends Component {
                         this.state.items.map((size, i) => {
                             return (
                                 <div
-                                    key={`text-${size.id}`}
+                                    key={uuidv4()}
                                     onClick={() => {
                                         this.setState({ ...this.state, selectedText: size.value });
                                         if (addSelectedAttribute) {
