@@ -4,7 +4,6 @@ const initialState = {
     cart: [],
     showCartOverlay: false,
 };
-
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case cartAction.ADD_ITEM_TO_CART:
@@ -12,6 +11,7 @@ export const cartReducer = (state = initialState, action) => {
                 ...state,
                 cart: [...state.cart, action.payload],
             });
+
         case cartAction.TOOGLE_CART_VIEW:
             return (state = {
                 ...state,
@@ -41,7 +41,6 @@ export const cartReducer = (state = initialState, action) => {
                         };
                     }
                 }
-
                 return cartItem;
             });
             return (state = {

@@ -6,7 +6,7 @@ import TextType from "./components/textType/TextType";
 
 class AttributePicker extends Component {
     render() {
-        const { attributes, selectedAttributes, forType, addSelectedAttribute, cartItemId } = this.props;
+        const { attributes, selectedAttributes, forType } = this.props;
         return (
             <div className={`attribute__picker__container ${forType && "attribute__picker__container__" + forType}`}>
                 {attributes &&
@@ -14,13 +14,7 @@ class AttributePicker extends Component {
                         if (attribute.type === "text") {
                             return (
                                 <div key={uuidv4()} className={`attribute__picker ${forType && "attribute__picker__" + forType}`}>
-                                    <TextType
-                                        attribute={attribute}
-                                        selectedAttributes={selectedAttributes}
-                                        addSelectedAttribute={addSelectedAttribute}
-                                        forType={forType}
-                                        cartItemId={cartItemId}
-                                    />
+                                    <TextType attribute={attribute} selectedAttributes={selectedAttributes} forType={forType} />
                                 </div>
                             );
                         }
@@ -29,13 +23,7 @@ class AttributePicker extends Component {
                                 <div
                                     key={uuidv4()}
                                     className={`attribute__picker ${forType && forType === "overlay" && "attribute__picker__overlay"}`}>
-                                    <SwatchType
-                                        attribute={attribute}
-                                        selectedAttributes={selectedAttributes}
-                                        addSelectedAttribute={addSelectedAttribute}
-                                        forType={forType}
-                                        cartItemId={cartItemId}
-                                    />
+                                    <SwatchType attribute={attribute} selectedAttributes={selectedAttributes} forType={forType} />
                                 </div>
                             );
                         }

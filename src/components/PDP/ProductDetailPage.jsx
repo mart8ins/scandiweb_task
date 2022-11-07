@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { productAction } from "../../redux/actions/product";
 import ProductDetails from "./components/productDetails/ProductDetails";
 import DetailsImages from "./components/detailsImages/DetailsImages";
 import "./productDetailPage.css";
+import { v4 as uuidv4 } from "uuid";
 import { productQuery } from "../queries";
 import withRouter from "./withRouter";
 
@@ -13,6 +16,16 @@ class ProductDetailPage extends Component {
 
     componentDidMount() {
         this.getDetails();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState != this.state) {
+            const { dispatch } = this.props;
+            dispatch({
+                type: productAction.INITILIZE_PRODUCT,
+                payload: { cartItemId: uuidv4(), productId: this.state.productId, quantity: 1, selectedAttributes: [] },
+            });
+        }
     }
 
     async getDetails() {
@@ -31,4 +44,8 @@ class ProductDetailPage extends Component {
     }
 }
 
-export default withRouter(ProductDetailPage);
+const mapStateToProps = (state) => {
+    return state.productReducer;
+};
+
+export default connect(mapStateToProps)(withRouter(ProductDetailPage));
