@@ -29,10 +29,13 @@ class Actions extends Component {
         };
 
         const toogleCartView = () => {
-            dispatch({
-                type: cartAction.TOOGLE_CART_VIEW,
-                payload: !showCartOverlay,
-            });
+            const show = window.location.pathname !== "/cart" ? true : false;
+            if (show) {
+                dispatch({
+                    type: cartAction.TOOGLE_CART_VIEW,
+                    payload: !showCartOverlay,
+                });
+            }
         };
 
         return (
@@ -56,7 +59,7 @@ class Actions extends Component {
                         {!this.state.showCurrencyOptions && <img className="vector" src={vector_down} alt="Currency chooser" />}
                         {this.state.showCurrencyOptions && <img className="vector" src={vector_up} alt="Currency chooser" />}
                     </div>
-                    <div className="chart__icon" onClick={window.location.pathname !== "/cart" ? toogleCartView : null}>
+                    <div className="chart__icon" onClick={toogleCartView}>
                         <img src={empty_chart} alt="Empty chart" />
                         {cart.length > 0 && (
                             <div className="items__in__cart">

@@ -23,7 +23,9 @@ class CartOverlay extends Component {
                             </div>
                             {cart &&
                                 cart.map((cartItem, i) => {
-                                    return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
+                                    if (cartItem.quantity > 0) {
+                                        return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
+                                    }
                                 })}
                             <div className="cart__overlay__totals__container">
                                 <div className="cart__overlay__totals__title">Total</div>

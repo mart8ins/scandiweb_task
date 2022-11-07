@@ -12,6 +12,7 @@
     right: 72px;
     width: 325px;
     background: #ffffff;
+    z-index: 4;
 }
 
 .cart__overlay .cart__preview__container .cart__preview {

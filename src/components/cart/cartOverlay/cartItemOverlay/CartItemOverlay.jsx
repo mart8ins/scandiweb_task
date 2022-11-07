@@ -18,11 +18,11 @@ class CartItemOverlay extends Component {
         this.getDetails();
     }
 
-    componentDidUpdate(previousProps) {
-        if (this.props.cartItem.cartItemId != previousProps.cartItem.cartItemId) {
-            this.getDetails();
-        }
-    }
+    // componentDidUpdate(previousProps) {
+    //     if (this.props.cartItem.cartItemId != previousProps.cartItem.cartItemId) {
+    //         this.getDetails();
+    //     }
+    // }
 
     async getDetails() {
         const { productId } = this.props.cartItem;
@@ -69,10 +69,17 @@ class CartItemOverlay extends Component {
                         <div
                             className="decrease__item__ov"
                             onClick={() => {
-                                dispatch({
-                                    type: cartAction.DECREASE_CART_ITEM,
-                                    payload: cartItemId,
-                                });
+                                if (quantity > 1) {
+                                    dispatch({
+                                        type: cartAction.DECREASE_CART_ITEM,
+                                        payload: cartItemId,
+                                    });
+                                } else {
+                                    dispatch({
+                                        type: cartAction.DELETE_CART_ITEM,
+                                        payload: cartItemId,
+                                    });
+                                }
                             }}>
                             <img src={vec_hor_sm} alt="Decrease quantity button" />
                         </div>

@@ -53,7 +53,7 @@ export const categoryQuery = () => {
                 }
             }
         `,
-        fetchPolicy: "network-only",
+        // fetchPolicy: "network-only",
     });
 };
 
@@ -87,6 +87,5 @@ export const productQuery = (productId) => {
                 }
             }
         `,
-        fetchPolicy: "network-only",
     });
 };
