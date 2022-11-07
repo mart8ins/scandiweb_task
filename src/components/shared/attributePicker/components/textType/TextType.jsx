@@ -10,6 +10,25 @@ class TextType extends Component {
         attributeData: this.props.attribute.items[0],
     };
 
+    // componentDidMount() {
+    //     const { attribute, selectedAttributes } = this.props;
+    //     if (selectedAttributes) {
+    //         selectedAttributes.forEach((selected) => {
+    //             if (
+    //                 selected.id === attribute.id
+    //                 // && attribute.items[0].value === selected.item.value
+    //             ) {
+    //                 // console.log(attribute.items[0].value);
+    //                 // console.log(selected.item.value);
+    //                 this.setState({
+    //                     selectedText: selected.item.value,
+    //                     attributeData: selected.item,
+    //                 });
+    //             }
+    //         });
+    //     }
+    // }
+
     addAttribute(item) {
         this.setState({
             selectedText: item.value,
@@ -19,13 +38,18 @@ class TextType extends Component {
             dispatch,
             attribute: { id },
         } = this.props;
-        dispatch({
-            type: productAction.ADD_ATTRIBUTE,
-            payload: {
-                id: id,
-                item: item,
-            },
-        });
+        if (!this.props.cartReducer.showCartOverlay) {
+            dispatch({
+                type: productAction.ADD_ATTRIBUTE,
+                payload: {
+                    id: id,
+                    item: item,
+                },
+            });
+        }
+        if (this.props.cartReducer.showCartOverlay) {
+            // Jādispečo actions uz cartu, mainot itema atribūtu
+        }
     }
 
     render() {

@@ -8,7 +8,6 @@ class Category extends Component {
     render() {
         const { name, products } = this.props.categoryReducer.active;
         const { symbol } = this.props.currencyReducer.active;
-
         return (
             <div>
                 <h2 className="category__name">{name}</h2>
@@ -34,7 +33,6 @@ class Category extends Component {
                                     image={product.gallery[0]}
                                     category={product.category}
                                     brand={product.brand}
-                                    attributes={product.attributes}
                                 />
                             );
                         })}

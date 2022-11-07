@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { cartAction } from "../../../redux/actions/cart";
+import { productAttributesQuery } from "../../queries";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "./productCard.css";
@@ -10,11 +11,23 @@ class ProductCard extends Component {
     state = {
         hover: false,
         hoverOnIcon: false,
+        attributes: [],
     };
 
+    componentDidMount() {
+        this.getAttributes();
+    }
+    async getAttributes() {
+        const { data } = await productAttributesQuery(this.props.id);
+        this.setState({
+            ...this.state,
+            attributes: data.product.attributes,
+        });
+    }
+
     render() {
-        const { price, brand, name, stock, image, id, category, attributes, dispatch } = this.props;
-        const defaultSelectedAttributes = attributes.map((item) => {
+        const { price, brand, name, stock, image, id, category, dispatch } = this.props;
+        const defaultSelectedAttributes = this.state.attributes.map((item) => {
             return {
                 id: item.id,
                 item: item.items[0],

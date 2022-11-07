@@ -13,6 +13,7 @@ export const cartReducer = (state = initialState, action) => {
             });
 
         case cartAction.TOOGLE_CART_VIEW:
+            console.log(state.cart);
             return (state = {
                 ...state,
                 showCartOverlay: action.payload,

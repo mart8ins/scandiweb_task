@@ -39,21 +39,11 @@ export const categoryQuery = () => {
                             amount
                         }
                         category
-                        attributes {
-                            id
-                            name
-                            type
-                            items {
-                                displayValue
-                                value
-                                id
-                            }
-                        }
                     }
                 }
             }
         `,
-        // fetchPolicy: "network-only",
+        fetchPolicy: "network-only",
     });
 };
 
@@ -87,5 +77,28 @@ export const productQuery = (productId) => {
                 }
             }
         `,
+        // fetchPolicy: "network-only",
+    });
+};
+
+// GET PRODUCTS ATTRIBUTES
+export const productAttributesQuery = (productId) => {
+    return client.query({
+        query: gql`
+        query Product {
+            product(id:"${productId}") {
+                attributes {
+                    id
+                    name
+                    type
+                    items{
+                    displayValue
+                    value
+                    id
+                    }
+                }
+            }
+        }
+    `,
     });
 };
