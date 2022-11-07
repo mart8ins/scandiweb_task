@@ -15,4 +15,5 @@
 }
 .proceed__btn:hover {
     cursor: pointer;
+    filter: brightness(95%);
 }
