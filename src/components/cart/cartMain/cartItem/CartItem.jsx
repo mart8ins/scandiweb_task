@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { cartAction } from "../../../../redux/actions/cart.js";
 import ProductTitle from "../../../shared/productTitle/ProductTitle";
 import { productQuery } from "../../../queries";
 import "./cartItem.css";
@@ -9,7 +11,6 @@ import vec_ver from "../../../../icons/Vector-ver.svg";
 
 import arrow_left from "../../../../icons/Vector-arrow-left.svg";
 import arrow_right from "../../../../icons/Vector-arrow-right.svg";
-import { AppContext } from "../../../context";
 
 export class CartItem extends Component {
     state = {
@@ -35,7 +36,7 @@ export class CartItem extends Component {
     }
 
     render() {
-        const { changeQuantityForItemInCart } = this.context.cart;
+        const { dispatch } = this.props;
         const { quantity, selectedAttributes, cartItemId } = this.props.cartItem;
         const { brand, attributes, gallery, name, prices } = this.state.product;
         return (
@@ -61,7 +62,10 @@ export class CartItem extends Component {
                         <div
                             className="increase__item"
                             onClick={() => {
-                                changeQuantityForItemInCart(cartItemId, "increase");
+                                dispatch({
+                                    type: cartAction.INCREASE_CART_ITEM,
+                                    payload: cartItemId,
+                                });
                             }}>
                             <img src={vec_hor} alt="Increase quantity button" />
                             <img className="vertical__line" src={vec_ver} alt="Increase quantity button" />
@@ -70,7 +74,10 @@ export class CartItem extends Component {
                         <div
                             className="decrease__item"
                             onClick={() => {
-                                changeQuantityForItemInCart(cartItemId, "decrease");
+                                dispatch({
+                                    type: cartAction.DECREASE_CART_ITEM,
+                                    payload: cartItemId,
+                                });
                             }}>
                             <img src={vec_hor} alt="Decrease quantity button" />
                         </div>
@@ -95,5 +102,9 @@ export class CartItem extends Component {
         );
     }
 }
-CartItem.contextType = AppContext;
-export default CartItem;
+
+const mapStateToProps = (state) => {
+    return state;
+};
+
+export default connect(mapStateToProps)(CartItem);

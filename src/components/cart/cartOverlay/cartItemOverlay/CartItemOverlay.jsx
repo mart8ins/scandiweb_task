@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { cartAction } from "../../../../redux/actions/cart.js";
 import "./cartItemOverlay.css";
 import ProductTitle from "../../../shared/productTitle/ProductTitle";
 import PriceTag from "../../../shared/priceTag/PriceTag";
@@ -6,7 +8,6 @@ import vec_hor_sm from "../../../../icons/Vector-hor-sm.svg";
 import vec_ver_sm from "../../../../icons/Vector-ver-sm.svg";
 import AttributePicker from "../../../shared/attributePicker/AttributePicker";
 import { productQuery } from "../../../queries.js";
-import { AppContext } from "../../../context.js";
 
 class CartItemOverlay extends Component {
     state = {
@@ -32,7 +33,7 @@ class CartItemOverlay extends Component {
     }
 
     render() {
-        const { changeQuantityForItemInCart } = this.context.cart;
+        const { dispatch } = this.props;
         const { quantity, selectedAttributes, cartItemId } = this.props.cartItem;
         const { brand, attributes, gallery, name, prices } = this.state.product;
         const image = gallery && gallery[0];
@@ -56,7 +57,10 @@ class CartItemOverlay extends Component {
                         <div
                             className="increase__item__ov"
                             onClick={() => {
-                                changeQuantityForItemInCart(cartItemId, "increase");
+                                dispatch({
+                                    type: cartAction.INCREASE_CART_ITEM,
+                                    payload: cartItemId,
+                                });
                             }}>
                             <img src={vec_hor_sm} alt="Increase quantity button" />
                             <img className="vertical__line__ov" src={vec_ver_sm} alt="Increase quantity button" />
@@ -65,7 +69,10 @@ class CartItemOverlay extends Component {
                         <div
                             className="decrease__item__ov"
                             onClick={() => {
-                                changeQuantityForItemInCart(cartItemId, "decrease");
+                                dispatch({
+                                    type: cartAction.DECREASE_CART_ITEM,
+                                    payload: cartItemId,
+                                });
                             }}>
                             <img src={vec_hor_sm} alt="Decrease quantity button" />
                         </div>
@@ -79,5 +86,8 @@ class CartItemOverlay extends Component {
     }
 }
 
-CartItemOverlay.contextType = AppContext;
-export default CartItemOverlay;
+const mapStateToProps = (state) => {
+    return state;
+};
+
+export default connect(mapStateToProps)(CartItemOverlay);

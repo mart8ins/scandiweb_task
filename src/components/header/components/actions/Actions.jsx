@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./actions.css";
 import { connect } from "react-redux";
+import { cartAction } from "../../../../redux/actions/cart";
+import "./actions.css";
 import { currencyAction } from "../../../../redux/actions/currency";
 import vector_down from "../../../../icons/Vector_down.svg";
 import vector_up from "../../../../icons/Vector_up.svg";
 import empty_chart from "../../../../icons/Empty Cart.svg";
 import CurrencySwitcher from "./components/CurrencySwitcher";
-import { AppContext } from "../../../context";
 
 class Actions extends Component {
     state = {
@@ -14,7 +14,10 @@ class Actions extends Component {
     };
 
     render() {
-        const { dispatch, data, active } = this.props;
+        const { dispatch } = this.props;
+        const { data, active } = this.props.currencyReducer;
+        const { cart, showCartOverlay } = this.props.cartReducer;
+
         const changeActiveCurrency = (activeCurrency) => {
             dispatch({
                 type: currencyAction.SET__ACTIVE__CURRENCY,
@@ -25,8 +28,12 @@ class Actions extends Component {
             });
         };
 
-        const { showCartOverlay } = this.context.cart;
-        const { items, toogleCartView } = this.context.cart;
+        const toogleCartView = () => {
+            dispatch({
+                type: cartAction.TOOGLE_CART_VIEW,
+                payload: !showCartOverlay,
+            });
+        };
 
         return (
             <>
@@ -51,9 +58,9 @@ class Actions extends Component {
                     </div>
                     <div className="chart__icon" onClick={window.location.pathname !== "/cart" ? toogleCartView : null}>
                         <img src={empty_chart} alt="Empty chart" />
-                        {items.length > 0 && (
+                        {cart.length > 0 && (
                             <div className="items__in__cart">
-                                <div className="cart__number">{items.length}</div>
+                                <div className="cart__number">{cart.length}</div>
                             </div>
                         )}
                     </div>
@@ -64,7 +71,9 @@ class Actions extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    return state.currencyReducer;
+    return {
+        currencyReducer: state.currencyReducer,
+        cartReducer: state.cartReducer,
+    };
 };
-Actions.contextType = AppContext;
 export default connect(mapStateToProps)(Actions);

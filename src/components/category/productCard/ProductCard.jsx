@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { cartAction } from "../../../redux/actions/cart";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "./productCard.css";
 import add_to_basket from "../../../icons/CircleIcon.svg";
-import { AppContext } from "../../context";
 
 class ProductCard extends Component {
     state = {
@@ -12,13 +13,14 @@ class ProductCard extends Component {
     };
 
     render() {
-        const { addProductToCart } = this.context.cart;
-        const { price, brand, name, stock, image, id, category } = this.props;
-
+        const { price, brand, name, stock, image, id, category, dispatch } = this.props;
         /* ADD PRODUCT TO CART WITH QUANTITY = 1, ADDING MULTIPLE CREATES NEW PRODUCT IN CART AND NOT CHANGE
          QUANTITY TO EXISITING BECAUSE CLIENT COULD WANT TO ORDER SAME PRODUCT WITH DIFFERENT ATTRIBUTES */
         const addToCart = () => {
-            addProductToCart({ cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: [] });
+            dispatch({
+                type: cartAction.ADD_ITEM_TO_CART,
+                payload: { cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: [] },
+            });
         };
 
         return (
@@ -81,5 +83,9 @@ class ProductCard extends Component {
         );
     }
 }
-ProductCard.contextType = AppContext;
-export default ProductCard;
+
+const mapStateToProps = (state) => {
+    return state.cartReducer;
+};
+
+export default connect(mapStateToProps)(ProductCard);

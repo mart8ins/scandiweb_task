@@ -7,7 +7,6 @@ import { categoryAction } from "./redux/actions/categories";
 import CartMain from "./components/cart/cartMain/CartMain";
 import CartOverlay from "./components/cart/cartOverlay/CartOverlay";
 import Category from "./components/category/Category";
-import { AppContext } from "./components/context";
 import Header from "./components/header/Header";
 import ProductDetailPage from "./components/PDP/ProductDetailPage";
 import { currenciesQuery, categoryQuery } from "./components/queries";
@@ -41,25 +40,25 @@ class App extends Component {
     }
 
     render() {
-        const { showCartOverlay } = this.context.cart;
+        const { showCartOverlay } = this.props.cartReducer;
 
         return (
             <div className="App">
                 <Header />
                 <Routes>
                     <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />
-                    {/* <Route path="/cart" element={<CartMain />} /> */}
+                    <Route path="/cart" element={<CartMain />} />
                     <Route path="/" element={<Category />} />
                 </Routes>
 
-                {/* {showCartOverlay && <CartOverlay />} */}
+                {showCartOverlay && <CartOverlay />}
             </div>
         );
     }
 }
 const mapStateToProps = (state) => {
-    return state;
+    return {
+        cartReducer: state.cartReducer,
+    };
 };
-
-App.contextType = AppContext;
 export default connect(mapStateToProps)(App);

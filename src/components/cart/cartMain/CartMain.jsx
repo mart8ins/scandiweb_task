@@ -1,34 +1,22 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { AppContext } from "../../context";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import CartItem from "./cartItem/CartItem";
 import "./cartMain.css";
 
 class CartMain extends Component {
-    state = {
-        items: this.context.cart.items,
-    };
-
-    componentDidMount() {
-        this.setState({
-            items: this.context.cart.items,
-        });
-    }
-
     render() {
-        const {
-            cart: { items },
-            currencies: { active },
-        } = this.context;
+        const { cart } = this.props.cartReducer;
+        const { active } = this.props.currencyReducer;
 
         return (
             <div className="cart__container">
                 <div className="cart__title">Cart</div>
                 <div className="cart__item__line__top"></div>
                 <div className="cart__items__container">
-                    {this.state.items &&
-                        this.state.items.map((cartItem, i) => {
+                    {cart &&
+                        cart.map((cartItem, i) => {
                             return (
                                 <div key={uuidv4()}>
                                     <CartItem cartItem={cartItem} />
@@ -61,5 +49,11 @@ class CartMain extends Component {
         );
     }
 }
-CartMain.contextType = AppContext;
-export default CartMain;
+
+const mapStateToProps = (state) => {
+    return {
+        currencyReducer: state.currencyReducer,
+        cartReducer: state.cartReducer,
+    };
+};
+export default connect(mapStateToProps)(CartMain);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { AppContext } from "../../../../context";
 import "./textType.css";
 
 class TextType extends Component {
@@ -11,39 +11,38 @@ class TextType extends Component {
     };
 
     handleAttributes() {
-        const { attribute, selectedAttributes } = this.props;
-        const {
-            cart: { showCartOverlay, addDefaultAttributeToCartitem },
-        } = this.context;
-
-        if (selectedAttributes && selectedAttributes.length) {
-            selectedAttributes.forEach((sel) => {
-                if (attribute.id === sel.id) {
-                    this.setState({
-                        ...this.state,
-                        selectedText: sel.item.value,
-                    });
-                }
-            });
-        }
-        if (showCartOverlay) {
-            addDefaultAttributeToCartitem(this.state.cartItemId, attribute);
-        }
+        // const { attribute, selectedAttributes } = this.props;
+        // const {
+        //     cart: { showCartOverlay, addDefaultAttributeToCartitem },
+        // } = this.context;
+        // if (selectedAttributes && selectedAttributes.length) {
+        //     selectedAttributes.forEach((sel) => {
+        //         if (attribute.id === sel.id) {
+        //             this.setState({
+        //                 ...this.state,
+        //                 selectedText: sel.item.value,
+        //             });
+        //         }
+        //     });
+        // }
+        // if (showCartOverlay) {
+        //     addDefaultAttributeToCartitem(this.state.cartItemId, attribute);
+        // }
     }
 
-    componentDidMount() {
-        this.handleAttributes();
-        this.setState({
-            ...this.state,
-            items: this.props.attribute.items,
-        });
-    }
+    // componentDidMount() {
+    //     this.handleAttributes();
+    //     this.setState({
+    //         ...this.state,
+    //         items: this.props.attribute.items,
+    //     });
+    // }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.attributes != this.props.attributes || prevProps.selectedAttributes != this.props.selectedAttributes) {
-            this.handleAttributes();
-        }
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevProps.attributes != this.props.attributes || prevProps.selectedAttributes != this.props.selectedAttributes) {
+    //         this.handleAttributes();
+    //     }
+    // }
 
     render() {
         const {
@@ -84,5 +83,9 @@ class TextType extends Component {
     }
 }
 
-TextType.contextType = AppContext;
-export default TextType;
+const mapStateToProps = (state) => {
+    return {
+        cartReducer: state.cartReducer,
+    };
+};
+export default connect(mapStateToProps)(TextType);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { AppContext } from "../../../../context";
 import "./swatchType.css";
 
 class SwatchType extends Component {
@@ -9,26 +9,21 @@ class SwatchType extends Component {
         cartItemId: this.props.cartItemId,
     };
 
-    componentDidMount() {
-        const { attribute, selectedAttributes } = this.props;
-        const {
-            cart: { showCartOverlay, addDefaultAttributeToCartitem },
-        } = this.context;
+    // componentDidMount() {
+    //     const { attribute, selectedAttributes } = this.props;
+    //     const { showCartOverlay } = this.props.cartReducer;
 
-        if (selectedAttributes && selectedAttributes.length) {
-            selectedAttributes.forEach((sel) => {
-                if (attribute.id === sel.id) {
-                    this.setState({
-                        ...this.state,
-                        selectedSwatch: sel.item.displayValue,
-                    });
-                }
-            });
-        }
-        if (showCartOverlay) {
-            addDefaultAttributeToCartitem(this.state.cartItemId, attribute);
-        }
-    }
+    //     if (selectedAttributes && selectedAttributes.length) {
+    //         selectedAttributes.forEach((sel) => {
+    //             if (attribute.id === sel.id) {
+    //                 this.setState({
+    //                     ...this.state,
+    //                     selectedSwatch: sel.item.displayValue,
+    //                 });
+    //             }
+    //         });
+    //     }
+    // }
 
     render() {
         const {
@@ -70,5 +65,10 @@ class SwatchType extends Component {
         );
     }
 }
-SwatchType.contextType = AppContext;
-export default SwatchType;
+
+const mapStateToProps = (state) => {
+    return {
+        cartReducer: state.cartReducer,
+    };
+};
+export default connect(mapStateToProps)(SwatchType);

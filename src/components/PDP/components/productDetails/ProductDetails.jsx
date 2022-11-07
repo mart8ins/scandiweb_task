@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { cartAction } from "../../../../redux/actions/cart";
 import parse from "html-react-parser";
 import { v4 as uuidv4 } from "uuid";
 import "./productDetails.css";
@@ -6,7 +8,6 @@ import PriceTag from "../../../shared/priceTag/PriceTag";
 import AttributePicker from "../../../shared/attributePicker/AttributePicker";
 import ProductTitle from "../../../shared/productTitle/ProductTitle";
 import GreenProceedBtn from "../../../shared/greenProceedBtn/GreenProceedBtn";
-import { AppContext } from "../../../context";
 
 class ProductDetails extends Component {
     constructor(props) {
@@ -28,15 +29,13 @@ class ProductDetails extends Component {
     render() {
         const {
             product: { attributes, brand, description, gallery, name, prices, id },
+            dispatch,
         } = this.props;
-        const { addProductToCart } = this.context.cart;
 
         const addToCart = () => {
-            addProductToCart({
-                cartItemId: uuidv4(),
-                productId: id,
-                quantity: 1,
-                selectedAttributes: this.state.selectedAttributes,
+            dispatch({
+                type: cartAction.ADD_ITEM_TO_CART,
+                payload: { cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: [] },
             });
         };
 
@@ -68,5 +67,8 @@ class ProductDetails extends Component {
     }
 }
 
-ProductDetails.contextType = AppContext;
-export default ProductDetails;
+const mapStateToProps = (state) => {
+    return state;
+};
+
+export default connect(mapStateToProps)(ProductDetails);
