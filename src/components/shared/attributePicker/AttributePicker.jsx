@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, memo } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./attributePicker.css";
 import SwatchType from "./components/swatchType/SwatchType";
@@ -33,4 +33,4 @@ class AttributePicker extends Component {
     }
 }
 
-export default AttributePicker;
+export default memo(AttributePicker);

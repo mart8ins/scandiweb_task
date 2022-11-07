@@ -1,16 +1,36 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { productAction } from "../../../../../redux/actions/product";
 import { v4 as uuidv4 } from "uuid";
 import "./swatchType.css";
 
 class SwatchType extends Component {
     state = {
         selectedSwatch: this.props.attribute.items[0].displayValue,
+        attributeData: this.props.attribute.items[0],
     };
+
+    addAttribute(item) {
+        this.setState({
+            selectedSwatch: item.displayValue,
+            attributeData: item,
+        });
+        const {
+            dispatch,
+            attribute: { id },
+        } = this.props;
+        dispatch({
+            type: productAction.ADD_ATTRIBUTE,
+            payload: {
+                id: id,
+                item: item,
+            },
+        });
+    }
 
     render() {
         const {
-            attribute: { id, name, items },
+            attribute: { name, items },
             forType,
         } = this.props;
         return (
@@ -23,13 +43,7 @@ class SwatchType extends Component {
                                 <div
                                     key={uuidv4()}
                                     onClick={() => {
-                                        this.setState({
-                                            selectedSwatch: item.displayValue,
-                                        });
-                                        // addSelectedAttribute({
-                                        //     id: id,
-                                        //     item: item,
-                                        // });
+                                        this.addAttribute(item);
                                     }}
                                     id={`${this.state.selectedSwatch === item.displayValue && "selected__border"}`}
                                     className={`swatch__variants ${forType && "swatch__variants__" + forType}`}>
@@ -46,8 +60,6 @@ class SwatchType extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        cartReducer: state.cartReducer,
-    };
+    return state;
 };
 export default connect(mapStateToProps)(SwatchType);

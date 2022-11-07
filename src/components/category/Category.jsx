@@ -34,6 +34,7 @@ class Category extends Component {
                                     image={product.gallery[0]}
                                     category={product.category}
                                     brand={product.brand}
+                                    attributes={product.attributes}
                                 />
                             );
                         })}

@@ -13,13 +13,19 @@ class ProductCard extends Component {
     };
 
     render() {
-        const { price, brand, name, stock, image, id, category, dispatch } = this.props;
+        const { price, brand, name, stock, image, id, category, attributes, dispatch } = this.props;
+        const defaultSelectedAttributes = attributes.map((item) => {
+            return {
+                id: item.id,
+                item: item.items[0],
+            };
+        });
         /* ADD PRODUCT TO CART WITH QUANTITY = 1, ADDING MULTIPLE CREATES NEW PRODUCT IN CART AND NOT CHANGE
          QUANTITY TO EXISITING BECAUSE CLIENT COULD WANT TO ORDER SAME PRODUCT WITH DIFFERENT ATTRIBUTES */
         const addToCart = () => {
             dispatch({
                 type: cartAction.ADD_ITEM_TO_CART,
-                payload: { cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: [] },
+                payload: { cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: defaultSelectedAttributes },
             });
         };
 

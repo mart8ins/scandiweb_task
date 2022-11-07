@@ -21,9 +21,20 @@ class ProductDetailPage extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevState != this.state) {
             const { dispatch } = this.props;
+            const selectDefaultAttributes = this.state.product.attributes.map((item) => {
+                return {
+                    id: item.id,
+                    item: item.items[0],
+                };
+            });
             dispatch({
                 type: productAction.INITILIZE_PRODUCT,
-                payload: { cartItemId: uuidv4(), productId: this.state.productId, quantity: 1, selectedAttributes: [] },
+                payload: {
+                    cartItemId: uuidv4(),
+                    productId: this.state.productId,
+                    quantity: 1,
+                    selectedAttributes: selectDefaultAttributes,
+                },
             });
         }
     }
@@ -45,7 +56,7 @@ class ProductDetailPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return state.productReducer;
+    return state;
 };
 
 export default connect(mapStateToProps)(withRouter(ProductDetailPage));

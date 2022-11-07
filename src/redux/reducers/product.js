@@ -11,7 +11,21 @@ export const productReducer = (state = initialState, action) => {
                 productForCart: action.payload,
             });
         case productAction.ADD_ATTRIBUTE:
-            console.log("add attribute");
+            console.log(state.productForCart.selectedAttributes);
+            const updatedAttr = state.productForCart.selectedAttributes.map((item) => {
+                if (item.id == action.payload.id) {
+                    return action.payload;
+                } else {
+                    return item;
+                }
+            });
+
+            return (state = {
+                productForCart: {
+                    ...state.productForCart,
+                    selectedAttributes: updatedAttr,
+                },
+            });
     }
     return state;
 };
