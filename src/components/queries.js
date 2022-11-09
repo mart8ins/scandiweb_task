@@ -77,7 +77,7 @@ export const productQuery = (productId) => {
                 }
             }
         `,
-        fetchPolicy: "network-only",
+        // fetchPolicy: "network-only",
     });
 };
 

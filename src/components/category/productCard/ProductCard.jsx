@@ -38,7 +38,13 @@ class ProductCard extends Component {
         const addToCart = () => {
             dispatch({
                 type: cartAction.ADD_ITEM_TO_CART,
-                payload: { cartItemId: uuidv4(), productId: id, quantity: 1, selectedAttributes: defaultSelectedAttributes },
+                payload: {
+                    cartItemId: uuidv4(),
+                    productId: id,
+                    quantity: 1,
+                    selectedAttributes: defaultSelectedAttributes,
+                    allAttributes: this.state.attributes,
+                },
             });
         };
 

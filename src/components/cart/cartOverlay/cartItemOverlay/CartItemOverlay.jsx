@@ -28,8 +28,8 @@ class CartItemOverlay extends Component {
 
     render() {
         const { dispatch } = this.props;
-        const { quantity, selectedAttributes, cartItemId } = this.props.cartItem;
-        const { brand, attributes, gallery, name, prices } = this.state.product;
+        const { quantity, selectedAttributes, cartItemId, allAttributes } = this.props.cartItem;
+        const { brand, gallery, name, prices } = this.state.product;
         const image = gallery && gallery[0];
 
         return (
@@ -41,7 +41,7 @@ class CartItemOverlay extends Component {
                             <PriceTag showTitle={false} forType="overlay" prices={prices} />
                         </div>
                         <AttributePicker
-                            attributes={attributes}
+                            attributes={allAttributes}
                             selectedAttributes={selectedAttributes}
                             forType={"overlay"}
                             cartItemId={cartItemId}

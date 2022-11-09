@@ -48,7 +48,8 @@ class ProductDetailPage extends Component {
     render() {
         return (
             <div className="product__details_page">
-                <DetailsImages images={this.state.product.gallery} />
+                {this.state.product.gallery && <DetailsImages images={this.state.product.gallery} />}
+
                 <ProductDetails product={this.state.product} />
             </div>
         );

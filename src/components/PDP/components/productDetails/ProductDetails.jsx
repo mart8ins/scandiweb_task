@@ -18,7 +18,10 @@ class ProductDetails extends Component {
         const addToCart = () => {
             dispatch({
                 type: cartAction.ADD_ITEM_TO_CART,
-                payload: this.props.productForCart,
+                payload: {
+                    ...this.props.productForCart,
+                    allAttributes: attributes,
+                },
             });
         };
 

@@ -46,7 +46,6 @@ class App extends Component {
 
     render() {
         const { showCartOverlay } = this.props.cartReducer;
-
         return (
             <div className="App">
                 <Header />

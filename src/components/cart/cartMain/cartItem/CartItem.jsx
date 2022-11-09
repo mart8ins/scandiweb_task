@@ -29,8 +29,8 @@ export class CartItem extends Component {
 
     render() {
         const { dispatch } = this.props;
-        const { quantity, selectedAttributes, cartItemId } = this.props.cartItem;
-        const { brand, attributes, gallery, name, prices } = this.state.product;
+        const { quantity, selectedAttributes, cartItemId, allAttributes } = this.props.cartItem;
+        const { brand, gallery, name, prices } = this.state.product;
         return (
             <div className="cart__item__container">
                 <div className="cart__item__details">
@@ -42,7 +42,7 @@ export class CartItem extends Component {
                             <PriceTag showTitle={false} forType="cart" prices={prices} />
                         </div>
                         <AttributePicker
-                            attributes={attributes}
+                            attributes={allAttributes}
                             selectedAttributes={selectedAttributes}
                             forType={"cart"}
                             cartItemId={cartItemId}
