@@ -32,7 +32,7 @@ class TextType extends Component {
             attribute: { id },
             cartItemId,
         } = this.props;
-        if (!this.props.cartReducer.showCartOverlay) {
+        if (!this.props.cartReducer.showCartOverlay && window.location.pathname !== "/cart") {
             dispatch({
                 type: productAction.ADD_ATTRIBUTE,
                 payload: {
@@ -41,7 +41,7 @@ class TextType extends Component {
                 },
             });
         }
-        if (this.props.cartReducer.showCartOverlay) {
+        if (this.props.cartReducer.showCartOverlay || window.location.pathname == "/cart") {
             dispatch({
                 type: cartAction.CHANGE_ATTRIBUTE,
                 payload: {
@@ -58,7 +58,6 @@ class TextType extends Component {
             forType,
             attribute: { items, name },
         } = this.props;
-
         return (
             <div className={`text__picker ${forType && "text__picker__" + forType}`}>
                 <p className={`text__title ${forType && "text__title__" + forType}`}>{name}:</p>

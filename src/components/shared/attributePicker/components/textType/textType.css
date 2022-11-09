@@ -88,3 +88,52 @@
 .text__picker__overlay .text__variants__container__overlay .text__variants__overlay:hover {
     cursor: pointer;
 }
+
+/* FOR MAIN CART */
+.text__picker__cart .text__title__cart {
+    height: 18px;
+    font-family: "Roboto Condensed";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #1d1f22;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.text__picker__cart .text__variants__container__cart {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.text__picker__cart .text__variants__container__cart .text__variants__cart {
+    box-sizing: border-box;
+    width: 63px;
+    height: 45px;
+    border: 1px solid #1d1f22;
+    font-family: "Source Sans Pro", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: #292929;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text__picker__cart .text__variants__container__cart .selected__variant__cart {
+    background: #1d1f22;
+    border: 1px solid #1d1f22;
+    color: #ffffff;
+}
+
+.text__picker__cart .text__variants__container__cart .text__variants__cart:hover {
+    cursor: pointer;
+}

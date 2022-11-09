@@ -33,7 +33,7 @@ class SwatchType extends Component {
             cartItemId,
         } = this.props;
 
-        if (!this.props.cartReducer.showCartOverlay) {
+        if (!this.props.cartReducer.showCartOverlay && window.location.pathname !== "/cart") {
             dispatch({
                 type: productAction.ADD_ATTRIBUTE,
                 payload: {
@@ -42,7 +42,7 @@ class SwatchType extends Component {
                 },
             });
         }
-        if (this.props.cartReducer.showCartOverlay) {
+        if (this.props.cartReducer.showCartOverlay || window.location.pathname == "/cart") {
             dispatch({
                 type: cartAction.CHANGE_ATTRIBUTE,
                 payload: {

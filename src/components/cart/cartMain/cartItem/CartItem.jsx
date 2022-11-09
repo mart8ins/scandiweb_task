@@ -21,12 +21,6 @@ export class CartItem extends Component {
         this.getDetails();
     }
 
-    componentDidUpdate(previousProps) {
-        if (this.props.cartItem.cartItemId != previousProps.cartItem.cartItemId) {
-            this.getDetails();
-        }
-    }
-
     async getDetails() {
         const { productId } = this.props.cartItem;
         const { data } = await productQuery(productId);
