@@ -22,7 +22,6 @@ export const cartReducer = (state = initialState, action) => {
             });
 
         case cartAction.TOOGLE_CART_VIEW:
-            console.log("toogle", state.cart);
             return (state = {
                 ...state,
                 showCartOverlay: action.payload,
@@ -86,7 +85,6 @@ export const cartReducer = (state = initialState, action) => {
 
         case cartAction.GET_CART_LS:
             const cart = getFromLocalStorage("cart");
-            console.log(cart, "cart");
             return {
                 ...state,
                 cart: cart || state.cart,

@@ -82,3 +82,14 @@
 .cart__container .cart__items__container .order__btn:hover {
     cursor: pointer;
 }
+
+.cart__container .empty__cart {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+}
