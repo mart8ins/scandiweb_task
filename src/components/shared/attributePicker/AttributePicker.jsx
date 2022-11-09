@@ -6,7 +6,7 @@ import TextType from "./components/textType/TextType";
 
 class AttributePicker extends Component {
     render() {
-        const { attributes, selectedAttributes, forType } = this.props;
+        const { attributes, selectedAttributes, forType, cartItemId } = this.props;
         return (
             <div className={`attribute__picker__container ${forType && "attribute__picker__container__" + forType}`}>
                 {attributes &&
@@ -14,7 +14,12 @@ class AttributePicker extends Component {
                         if (attribute.type === "text") {
                             return (
                                 <div key={uuidv4()} className={`attribute__picker ${forType && "attribute__picker__" + forType}`}>
-                                    <TextType attribute={attribute} selectedAttributes={selectedAttributes} forType={forType} />
+                                    <TextType
+                                        attribute={attribute}
+                                        selectedAttributes={selectedAttributes}
+                                        cartItemId={cartItemId}
+                                        forType={forType}
+                                    />
                                 </div>
                             );
                         }
@@ -23,7 +28,12 @@ class AttributePicker extends Component {
                                 <div
                                     key={uuidv4()}
                                     className={`attribute__picker ${forType && forType === "overlay" && "attribute__picker__overlay"}`}>
-                                    <SwatchType attribute={attribute} selectedAttributes={selectedAttributes} forType={forType} />
+                                    <SwatchType
+                                        attribute={attribute}
+                                        selectedAttributes={selectedAttributes}
+                                        cartItemId={cartItemId}
+                                        forType={forType}
+                                    />
                                 </div>
                             );
                         }

@@ -1,31 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { productAction } from "../../../../../redux/actions/product";
+import { cartAction } from "../../../../../redux/actions/cart";
 import { v4 as uuidv4 } from "uuid";
 import "./swatchType.css";
 
 class SwatchType extends Component {
     state = {
         selectedSwatch: this.props.attribute.items[0].displayValue,
-        attributeData: this.props.attribute.items[0],
     };
+
+    componentDidMount() {
+        const { attribute, selectedAttributes } = this.props;
+        if (selectedAttributes) {
+            selectedAttributes.forEach((selected) => {
+                if (selected.id === attribute.id) {
+                    this.setState({
+                        selectedSwatch: selected.item.displayValue,
+                    });
+                }
+            });
+        }
+    }
 
     addAttribute(item) {
         this.setState({
             selectedSwatch: item.displayValue,
-            attributeData: item,
         });
         const {
             dispatch,
             attribute: { id },
+            cartItemId,
         } = this.props;
-        dispatch({
-            type: productAction.ADD_ATTRIBUTE,
-            payload: {
-                id: id,
-                item: item,
-            },
-        });
+
+        if (!this.props.cartReducer.showCartOverlay) {
+            dispatch({
+                type: productAction.ADD_ATTRIBUTE,
+                payload: {
+                    id: id,
+                    item: item,
+                },
+            });
+        }
+        if (this.props.cartReducer.showCartOverlay) {
+            dispatch({
+                type: cartAction.CHANGE_ATTRIBUTE,
+                payload: {
+                    id: id,
+                    item: item,
+                    cartItemId,
+                },
+            });
+        }
     }
 
     render() {

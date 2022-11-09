@@ -13,7 +13,6 @@ export const cartReducer = (state = initialState, action) => {
             });
 
         case cartAction.TOOGLE_CART_VIEW:
-            console.log(state.cart);
             return (state = {
                 ...state,
                 showCartOverlay: action.payload,
@@ -57,7 +56,17 @@ export const cartReducer = (state = initialState, action) => {
                 cart: deletedUpdated,
             };
         case cartAction.CHANGE_ATTRIBUTE:
-            console.log(action.payload, "te vajag cart item Id");
+            state.cart.forEach((item) => {
+                if (item.cartItemId == action.payload.cartItemId) {
+                    item.selectedAttributes.forEach((attr) => {
+                        if (attr.id == action.payload.id) {
+                            attr.id = action.payload.id;
+                            attr.item = action.payload.item;
+                        }
+                    });
+                }
+            });
+            return state;
         default:
             return state;
     }

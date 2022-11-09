@@ -30,6 +30,7 @@ class TextType extends Component {
         const {
             dispatch,
             attribute: { id },
+            cartItemId,
         } = this.props;
         if (!this.props.cartReducer.showCartOverlay) {
             dispatch({
@@ -46,9 +47,9 @@ class TextType extends Component {
                 payload: {
                     id: id,
                     item: item,
+                    cartItemId,
                 },
             });
-            // Jādispečo actions uz cartu, mainot itema atribūtu
         }
     }
 
