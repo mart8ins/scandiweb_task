@@ -87,7 +87,7 @@ export const cartReducer = (state = initialState, action) => {
             const cart = getFromLocalStorage("cart");
             return {
                 ...state,
-                cart,
+                cart: cart || [],
             };
         default:
             return state;
