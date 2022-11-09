@@ -6,6 +6,7 @@ import "./cartOverlay.css";
 import CartItemOverlay from "./cartItemOverlay/CartItemOverlay";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import { cartAction } from "../../../redux/actions/cart";
+import { getFromLocalStorage } from "../../localStorage";
 
 class CartOverlay extends Component {
     render() {

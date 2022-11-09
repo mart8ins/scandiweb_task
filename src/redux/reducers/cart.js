@@ -1,3 +1,4 @@
+import { getFromLocalStorage, saveLocalStorage } from "../../components/localStorage";
 import { cartAction } from "../actions/cart";
 
 const initialState = {
@@ -8,6 +9,13 @@ const initialState = {
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case cartAction.ADD_ITEM_TO_CART:
+            /* LOCAL STORAGE */
+            const lsCart = getFromLocalStorage("cart");
+            if (lsCart) {
+                saveLocalStorage("cart", [...lsCart, action.payload]);
+            } else {
+                saveLocalStorage("cart", [action.payload]);
+            }
             return (state = {
                 ...state,
                 cart: [...state.cart, action.payload],
@@ -28,6 +36,7 @@ export const cartReducer = (state = initialState, action) => {
                 }
                 return cartItem;
             });
+            saveLocalStorage("cart", updatedForIncrease);
             return (state = {
                 ...state,
                 cart: updatedForIncrease,
@@ -44,6 +53,7 @@ export const cartReducer = (state = initialState, action) => {
                 }
                 return cartItem;
             });
+            saveLocalStorage("cart", updatedForDecrease);
             return (state = {
                 ...state,
                 cart: updatedForDecrease,
@@ -52,6 +62,7 @@ export const cartReducer = (state = initialState, action) => {
             const deletedUpdated = state.cart.filter((item) => {
                 return item.cartItemId != action.payload;
             });
+            saveLocalStorage("cart", deletedUpdated);
             return {
                 ...state,
                 cart: deletedUpdated,
@@ -67,9 +78,17 @@ export const cartReducer = (state = initialState, action) => {
                     });
                 }
             });
+            saveLocalStorage("cart", state.cart);
             return state;
         case cartAction.GET_CART_TOTALS:
             console.log("GET CART TOTALS", action.payload);
+
+        case cartAction.GET_CART_LS:
+            const cart = getFromLocalStorage("cart");
+            return {
+                ...state,
+                cart,
+            };
         default:
             return state;
     }

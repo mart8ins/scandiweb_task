@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { currencyAction } from "./redux/actions/currency";
 import { categoryAction } from "./redux/actions/categories";
+import { cartAction } from "./redux/actions/cart";
 import CartMain from "./components/cart/cartMain/CartMain";
 import CartOverlay from "./components/cart/cartOverlay/CartOverlay";
 import Category from "./components/category/Category";
@@ -13,6 +14,10 @@ import { currenciesQuery, categoryQuery } from "./components/queries";
 
 class App extends Component {
     componentDidMount() {
+        const { dispatch } = this.props;
+        dispatch({
+            type: cartAction.GET_CART_LS,
+        });
         this.getCurrencies();
         this.getCategories();
     }
