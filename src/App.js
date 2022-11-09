@@ -47,7 +47,7 @@ class App extends Component {
     render() {
         const { showCartOverlay } = this.props.cartReducer;
         return (
-            <div className="App">
+            <div className="App" style={showCartOverlay ? { overflow: "hidden" } : {}}>
                 <Header />
                 <Routes>
                     <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />
