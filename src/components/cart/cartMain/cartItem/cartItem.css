@@ -73,7 +73,7 @@
     margin-top: 16px;
 }
 
-.cart__item__container .image__quantity .item__image__container {
+/* .cart__item__container .image__quantity .item__image__container {
     width: 200px;
     height: 337px;
     height: 90%;
@@ -118,4 +118,4 @@
 .cart__item__container .image__quantity .item__image__container .change__image .image__to__right .vector__container {
     position: relative;
     padding-left: 2px;
-}
+} */

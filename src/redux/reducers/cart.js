@@ -3,6 +3,7 @@ import { cartAction } from "../actions/cart";
 const initialState = {
     cart: [],
     showCartOverlay: false,
+    totals: {},
 };
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -67,6 +68,8 @@ export const cartReducer = (state = initialState, action) => {
                 }
             });
             return state;
+        case cartAction.GET_CART_TOTALS:
+            console.log("GET CART TOTALS", action.payload);
         default:
             return state;
     }
