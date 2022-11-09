@@ -56,6 +56,8 @@ export const cartReducer = (state = initialState, action) => {
                 ...state,
                 cart: deletedUpdated,
             };
+        case cartAction.CHANGE_ATTRIBUTE:
+            console.log(action.payload, "te vajag cart item Id");
         default:
             return state;
     }

@@ -77,7 +77,7 @@ export const productQuery = (productId) => {
                 }
             }
         `,
-        // fetchPolicy: "network-only",
+        fetchPolicy: "network-only",
     });
 };
 
@@ -100,5 +100,6 @@ export const productAttributesQuery = (productId) => {
             }
         }
     `,
+        fetchPolicy: "network-only",
     });
 };

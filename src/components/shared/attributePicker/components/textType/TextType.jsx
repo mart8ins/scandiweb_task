@@ -3,36 +3,29 @@ import { connect } from "react-redux";
 import { productAction } from "../../../../../redux/actions/product";
 import { v4 as uuidv4 } from "uuid";
 import "./textType.css";
+import { cartAction } from "../../../../../redux/actions/cart";
 
 class TextType extends Component {
     state = {
         selectedText: this.props.attribute.items[0].value,
-        attributeData: this.props.attribute.items[0],
     };
 
-    // componentDidMount() {
-    //     const { attribute, selectedAttributes } = this.props;
-    //     if (selectedAttributes) {
-    //         selectedAttributes.forEach((selected) => {
-    //             if (
-    //                 selected.id === attribute.id
-    //                 // && attribute.items[0].value === selected.item.value
-    //             ) {
-    //                 // console.log(attribute.items[0].value);
-    //                 // console.log(selected.item.value);
-    //                 this.setState({
-    //                     selectedText: selected.item.value,
-    //                     attributeData: selected.item,
-    //                 });
-    //             }
-    //         });
-    //     }
-    // }
+    componentDidMount() {
+        const { attribute, selectedAttributes } = this.props;
+        if (selectedAttributes) {
+            selectedAttributes.forEach((selected) => {
+                if (selected.id === attribute.id) {
+                    this.setState({
+                        selectedText: selected.item.value,
+                    });
+                }
+            });
+        }
+    }
 
     addAttribute(item) {
         this.setState({
             selectedText: item.value,
-            attributeData: item,
         });
         const {
             dispatch,
@@ -48,6 +41,13 @@ class TextType extends Component {
             });
         }
         if (this.props.cartReducer.showCartOverlay) {
+            dispatch({
+                type: cartAction.CHANGE_ATTRIBUTE,
+                payload: {
+                    id: id,
+                    item: item,
+                },
+            });
             // Jādispečo actions uz cartu, mainot itema atribūtu
         }
     }
