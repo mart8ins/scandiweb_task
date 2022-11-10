@@ -17,7 +17,7 @@
 }
 
 .cart__preview__container .cart__preview {
-    padding: 16px;
+    padding: 14px;
 }
 
 .cart__preview__container .cart__preview .preview__title {
@@ -37,8 +37,10 @@
     font-weight: 700;
 }
 
-.cart__preview__container .cart__preview .cart__item__container {
-    width: 100%;
+.cart__preview__container .cart__preview .cart__items {
+    height: auto;
+    max-height: 760px;
+    overflow: scroll;
 }
 
 .cart__preview__container .cart__preview .cart__overlay__totals__container {
@@ -113,4 +115,29 @@
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
+}
+
+/* CUSTOM SCROLL BAR*/
+/* width */
+.cart__preview__container .cart__preview .custom__scrollbar::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* track */
+.cart__preview__container .cart__preview .custom__scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* handle */
+.cart__preview__container .cart__preview .custom__scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(57, 55, 72, 0.22);
+}
+
+/* hover */
+.cart__preview__container .cart__preview .custom__scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.cart__preview__container .cart__preview .custom__scrollbar::-webkit-scrollbar:horizontal {
+    display: none;
 }

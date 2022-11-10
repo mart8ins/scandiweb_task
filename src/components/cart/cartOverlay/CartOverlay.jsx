@@ -29,12 +29,16 @@ class CartOverlay extends Component {
                             <div className="preview__title">
                                 <span>My Bag,</span> {cart.length} items
                             </div>
-                            {cart &&
-                                cart.map((cartItem, i) => {
-                                    if (cartItem.quantity > 0) {
-                                        return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
-                                    }
-                                })}
+                            <div
+                                className={`cart__items ${cart.length > 3 && "custom__scrollbar"}`}
+                                style={cart.length < 4 ? { overflowX: "hidden", overflowY: "hidden" } : {}}>
+                                {cart &&
+                                    cart.map((cartItem, i) => {
+                                        if (cartItem.quantity > 0) {
+                                            return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
+                                        }
+                                    })}
+                            </div>
                             <div className="cart__overlay__totals__container">
                                 <div className="cart__overlay__totals__title">Total</div>
                                 <div className="cart__overlay__totals__value">{active.symbol + 9999}</div>
