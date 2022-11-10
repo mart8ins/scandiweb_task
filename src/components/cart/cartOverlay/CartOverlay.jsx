@@ -6,7 +6,6 @@ import "./cartOverlay.css";
 import CartItemOverlay from "./cartItemOverlay/CartItemOverlay";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import { cartAction } from "../../../redux/actions/cart";
-import { getFromLocalStorage } from "../../localStorage";
 
 class CartOverlay extends Component {
     render() {
@@ -14,8 +13,16 @@ class CartOverlay extends Component {
         const { active } = this.props.currencyReducer;
         const { dispatch } = this.props;
 
+        const toogleCartOverlay = () => {
+            dispatch({
+                type: cartAction.TOOGLE_CART_VIEW,
+                payload: !showCartOverlay,
+            });
+        };
+
         return (
-            <div className="cart__overlay">
+            <>
+                <div className="cart__overlay" onClick={toogleCartOverlay}></div>
                 <div className="cart__preview__container">
                     {cart && cart.length ? (
                         <div className="cart__preview">
@@ -32,16 +39,9 @@ class CartOverlay extends Component {
                                 <div className="cart__overlay__totals__title">Total</div>
                                 <div className="cart__overlay__totals__value">{active.symbol + 9999}</div>
                             </div>
+
                             <div className="cart__overlay__buttons__container">
-                                <Link
-                                    to="/cart"
-                                    className="cart__overlay__button"
-                                    onClick={() => {
-                                        dispatch({
-                                            type: cartAction.TOOGLE_CART_VIEW,
-                                            payload: !showCartOverlay,
-                                        });
-                                    }}>
+                                <Link to="/cart" className="cart__overlay__button" onClick={toogleCartOverlay}>
                                     View bag
                                 </Link>
                                 <GreenProceedBtn styles={{ width: "140px", height: "43px", fontSize: "14px" }} text="Check Out" />
@@ -51,7 +51,7 @@ class CartOverlay extends Component {
                         <div className="empty__cart">Cart is empty</div>
                     )}
                 </div>
-            </div>
+            </>
         );
     }
 }
