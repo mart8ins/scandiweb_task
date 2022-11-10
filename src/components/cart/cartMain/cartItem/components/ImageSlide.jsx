@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./imageSlide.css";
+
 import arrow_left from "../../../../../icons/Vector-arrow-left.svg";
 import arrow_right from "../../../../../icons/Vector-arrow-right.svg";
 

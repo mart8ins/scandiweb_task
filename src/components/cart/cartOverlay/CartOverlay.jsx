@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import "./cartOverlay.css";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
-import "./cartOverlay.css";
+import { connect } from "react-redux";
+import { cartAction } from "../../../redux/actions/cart";
+
 import CartItemOverlay from "./cartItemOverlay/CartItemOverlay";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import CartTotals from "../../shared/cartTotals/CartTotals";
-import { cartAction } from "../../../redux/actions/cart";
 
 class CartOverlay extends Component {
     render() {
         const { cart, showCartOverlay, totalProductCount } = this.props.cartReducer;
-        const { active } = this.props.currencyReducer;
         const { dispatch } = this.props;
 
         const toogleCartOverlay = () => {
@@ -34,14 +34,14 @@ class CartOverlay extends Component {
                                 className={`cart__items ${cart.length > 3 && "custom__scrollbar"}`}
                                 style={cart.length < 4 ? { overflowX: "hidden", overflowY: "hidden" } : {}}>
                                 {cart &&
-                                    cart.map((cartItem, i) => {
+                                    cart.map((cartItem) => {
                                         if (cartItem.quantity > 0) {
                                             return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
                                         }
                                     })}
                             </div>
                             <div className="cart__overlay__totals__container">
-                                <CartTotals forType="overlay" />
+                                <CartTotals />
                             </div>
 
                             <div className="cart__overlay__buttons__container">
@@ -61,7 +61,6 @@ class CartOverlay extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        currencyReducer: state.currencyReducer,
         cartReducer: state.cartReducer,
     };
 };

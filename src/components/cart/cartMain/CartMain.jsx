@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import "./cartMain.css";
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import CartItem from "./cartItem/CartItem";
 import CartTotals from "../../shared/cartTotals/CartTotals";
-import "./cartMain.css";
 
 class CartMain extends Component {
     render() {
@@ -18,7 +19,7 @@ class CartMain extends Component {
                         <div className="cart__item__line__top"></div>
                         <div className="cart__items__container">
                             {cart &&
-                                cart.map((cartItem, i) => {
+                                cart.map((cartItem) => {
                                     return (
                                         <div key={uuidv4()}>
                                             <CartItem cartItem={cartItem} />

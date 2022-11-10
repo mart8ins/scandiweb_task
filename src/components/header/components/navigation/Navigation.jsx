@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { categoryAction } from "../../../../redux/actions/categories";
+import "./navigation.css";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import "./navigation.css";
+import { connect } from "react-redux";
+import { categoryAction } from "../../../../redux/actions/categories";
 
 class Navigation extends Component {
     render() {

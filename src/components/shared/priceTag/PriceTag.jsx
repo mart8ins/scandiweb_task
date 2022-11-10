@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 import "./priceTag.css";
+import { v4 as uuidv4 } from "uuid";
+import { connect } from "react-redux";
 
 class PriceTag extends Component {
     render() {

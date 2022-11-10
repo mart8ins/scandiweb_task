@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { productAction } from "../../../../../redux/actions/product";
-import { v4 as uuidv4 } from "uuid";
 import "./textType.css";
+import { v4 as uuidv4 } from "uuid";
+import { connect } from "react-redux";
 import { cartAction } from "../../../../../redux/actions/cart";
+import { productAction } from "../../../../../redux/actions/product";
 
 class TextType extends Component {
     state = {
@@ -63,7 +63,7 @@ class TextType extends Component {
                 <p className={`text__title ${forType && "text__title__" + forType}`}>{name}:</p>
                 <div className={`text__variants__container ${forType && "text__variants__container__" + forType}`}>
                     {items &&
-                        items.map((size, i) => {
+                        items.map((size) => {
                             return (
                                 <div
                                     key={uuidv4()}

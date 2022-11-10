@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import "./productDetails.css";
+import parse from "html-react-parser";
 import { connect } from "react-redux";
 import { cartAction } from "../../../../redux/actions/cart";
-import parse from "html-react-parser";
-import "./productDetails.css";
 import PriceTag from "../../../shared/priceTag/PriceTag";
 import AttributePicker from "../../../shared/attributePicker/AttributePicker";
 import ProductTitle from "../../../shared/productTitle/ProductTitle";
@@ -11,7 +11,7 @@ import GreenProceedBtn from "../../../shared/greenProceedBtn/GreenProceedBtn";
 class ProductDetails extends Component {
     render() {
         const {
-            product: { attributes, brand, description, name, id, prices },
+            product: { attributes, brand, description, name, prices },
             dispatch,
         } = this.props;
 

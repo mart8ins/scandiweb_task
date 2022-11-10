@@ -1,14 +1,16 @@
 import React, { Component } from "react";
+import "./cartItem.css";
 import { connect } from "react-redux";
 import { cartAction } from "../../../../redux/actions/cart.js";
-import ProductTitle from "../../../shared/productTitle/ProductTitle";
 import { productQuery } from "../../../queries";
-import "./cartItem.css";
+
+import ProductTitle from "../../../shared/productTitle/ProductTitle";
 import AttributePicker from "../../../shared/attributePicker/AttributePicker";
 import PriceTag from "../../../shared/priceTag/PriceTag";
+import ImageSlide from "./components/ImageSlide.jsx";
+
 import vec_hor from "../../../../icons/Vector-hor.svg";
 import vec_ver from "../../../../icons/Vector-ver.svg";
-import ImageSlide from "./components/ImageSlide.jsx";
 
 export class CartItem extends Component {
     state = {
@@ -66,10 +68,17 @@ export class CartItem extends Component {
                         <div
                             className="decrease__item"
                             onClick={() => {
-                                dispatch({
-                                    type: cartAction.DECREASE_CART_ITEM,
-                                    payload: cartItemId,
-                                });
+                                if (quantity > 1) {
+                                    dispatch({
+                                        type: cartAction.DECREASE_CART_ITEM,
+                                        payload: cartItemId,
+                                    });
+                                } else {
+                                    dispatch({
+                                        type: cartAction.DELETE_CART_ITEM,
+                                        payload: cartItemId,
+                                    });
+                                }
                             }}>
                             <img src={vec_hor} alt="Decrease quantity button" />
                         </div>

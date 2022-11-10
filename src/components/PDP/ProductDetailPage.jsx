@@ -1,12 +1,11 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { connect } from "react-redux";
 import { productAction } from "../../redux/actions/product";
-import ProductDetails from "./components/productDetails/ProductDetails";
-import DetailsImages from "./components/detailsImages/DetailsImages";
-import "./productDetailPage.css";
-import { v4 as uuidv4 } from "uuid";
 import { productQuery } from "../queries";
 import withRouter from "./withRouter";
+import ProductDetails from "./components/productDetails/ProductDetails";
+import DetailsImages from "./components/detailsImages/DetailsImages";
 
 class ProductDetailPage extends Component {
     state = {

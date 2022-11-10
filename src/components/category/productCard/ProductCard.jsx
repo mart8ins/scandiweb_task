@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import "./productCard.css";
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import { connect } from "react-redux";
 import { cartAction } from "../../../redux/actions/cart";
 import { productAttributesQuery } from "../../queries";
-import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-import "./productCard.css";
+
 import add_to_basket from "../../../icons/CircleIcon.svg";
 
 class ProductCard extends Component {

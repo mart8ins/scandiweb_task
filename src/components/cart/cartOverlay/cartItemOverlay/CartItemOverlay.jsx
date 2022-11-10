@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import "./cartItemOverlay.css";
 import { connect } from "react-redux";
 import { cartAction } from "../../../../redux/actions/cart.js";
-import "./cartItemOverlay.css";
+import { productQuery } from "../../../queries.js";
+
 import ProductTitle from "../../../shared/productTitle/ProductTitle";
 import PriceTag from "../../../shared/priceTag/PriceTag";
+import AttributePicker from "../../../shared/attributePicker/AttributePicker";
+
 import vec_hor_sm from "../../../../icons/Vector-hor-sm.svg";
 import vec_ver_sm from "../../../../icons/Vector-ver-sm.svg";
-import AttributePicker from "../../../shared/attributePicker/AttributePicker";
-import { productQuery } from "../../../queries.js";
 
 class CartItemOverlay extends Component {
     state = {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import "./cartTotals.css";
+import { connect } from "react-redux";
 
 class CartTotals extends Component {
     state = {
@@ -42,7 +42,6 @@ class CartTotals extends Component {
             active: { symbol },
         } = this.props.currencyReducer;
         const { totalProductCount, showCartOverlay } = this.props.cartReducer;
-        const { forType } = this.props;
 
         return (
             <>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import "./category.css";
 import { v4 as uuidv4 } from "uuid";
 import { connect } from "react-redux";
-import "./category.css";
+
 import ProductCard from "./productCard/ProductCard";
 
 class Category extends Component {

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import "./actions.css";
 import { connect } from "react-redux";
 import { cartAction } from "../../../../redux/actions/cart";
-import "./actions.css";
 import { currencyAction } from "../../../../redux/actions/currency";
+
 import vector_down from "../../../../icons/Vector_down.svg";
 import vector_up from "../../../../icons/Vector_up.svg";
 import empty_chart from "../../../../icons/Empty Cart.svg";
