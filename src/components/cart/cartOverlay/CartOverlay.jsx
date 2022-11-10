@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./cartOverlay.css";
 import CartItemOverlay from "./cartItemOverlay/CartItemOverlay";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
-import CartTotals from "./cartTotals/CartTotals";
+import CartTotals from "../../shared/cartTotals/CartTotals";
 import { cartAction } from "../../../redux/actions/cart";
 
 class CartOverlay extends Component {
@@ -41,8 +41,7 @@ class CartOverlay extends Component {
                                     })}
                             </div>
                             <div className="cart__overlay__totals__container">
-                                <div className="cart__overlay__totals__title">Total</div>
-                                <CartTotals activeCurrencySymbol={active.symbol} cart={cart} />
+                                <CartTotals forType="overlay" />
                             </div>
 
                             <div className="cart__overlay__buttons__container">

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import CartItem from "./cartItem/CartItem";
-import CartTotals from "../cartOverlay/cartTotals/CartTotals";
+import CartTotals from "../../shared/cartTotals/CartTotals";
 import "./cartMain.css";
 
 class CartMain extends Component {
