@@ -11,7 +11,7 @@ import GreenProceedBtn from "../../../shared/greenProceedBtn/GreenProceedBtn";
 class ProductDetails extends Component {
     render() {
         const {
-            product: { attributes, brand, description, name, prices, id },
+            product: { attributes, brand, description, name, id, prices },
             dispatch,
         } = this.props;
 
@@ -21,6 +21,7 @@ class ProductDetails extends Component {
                 payload: {
                     ...this.props.productForCart,
                     allAttributes: attributes,
+                    allPrices: prices,
                 },
             });
         };

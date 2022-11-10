@@ -29,6 +29,7 @@ class Category extends Component {
                                     id={product.id}
                                     name={product.name}
                                     price={activePrice}
+                                    allPrices={product.prices}
                                     stock={product.inStock}
                                     image={product.gallery[0]}
                                     category={product.category}

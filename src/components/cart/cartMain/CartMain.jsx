@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import GreenProceedBtn from "../../shared/greenProceedBtn/GreenProceedBtn";
 import CartItem from "./cartItem/CartItem";
+import CartTotals from "../cartOverlay/cartTotals/CartTotals";
 import "./cartMain.css";
 
 class CartMain extends Component {
     render() {
         const { cart } = this.props.cartReducer;
-        const { active } = this.props.currencyReducer;
 
         return (
             <div className="cart__container">
@@ -26,23 +26,7 @@ class CartMain extends Component {
                                         </div>
                                     );
                                 })}
-                            <div className="cart__totals__container">
-                                <div className="totals__heading">
-                                    <div className="totals__title">Tax 21%:</div>
-                                    <div className="totals__value">{active.symbol}42.00</div>
-                                </div>
-                                <div className="totals__heading">
-                                    <div className="totals__title">Quantity:</div>
-                                    <div className="totals__value">3</div>
-                                </div>
-                                <div className="totals__heading">
-                                    <div style={{ fontWeight: 500 }} className="totals__title">
-                                        Total:
-                                    </div>
-                                    <div className="totals__value">{active.symbol}200.00</div>
-                                </div>
-                            </div>
-
+                            <CartTotals />
                             <div className="order__btn">
                                 <GreenProceedBtn styles={{ width: "279px", height: "43px", fontSize: "14px" }} text={"Order"} />
                             </div>
@@ -58,7 +42,6 @@ class CartMain extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currencyReducer: state.currencyReducer,
         cartReducer: state.cartReducer,
     };
 };

@@ -5,6 +5,7 @@ const initialState = {
     cart: [],
     showCartOverlay: false,
     totalProductCount: 0,
+    cartTotalAmount: 0,
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -96,8 +97,22 @@ export const cartReducer = (state = initialState, action) => {
             });
             saveLocalStorage("cart", state.cart);
             return state;
-        case cartAction.GET_CART_TOTALS:
-            console.log("GET CART TOTALS", action.payload);
+        case cartAction.GET_CART_TOTAL_AMOUNT:
+            const { activeCurrency } = action.payload;
+            let totalAmount = 0;
+            action.payload.cart.forEach((item) => {
+                item.allPrices.forEach((price) => {
+                    if (price.currency.symbol == activeCurrency) {
+                        console.log(price.amount);
+                        totalAmount += item.quantity * price.amount;
+                    }
+                });
+                console.log(totalAmount, "totalAmount");
+                return {
+                    ...state,
+                    cartTotalAmount: totalAmount,
+                };
+            });
 
         case cartAction.GET_CART_LS:
             const cart = getFromLocalStorage("cart");

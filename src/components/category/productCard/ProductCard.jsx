@@ -26,7 +26,7 @@ class ProductCard extends Component {
     }
 
     render() {
-        const { price, brand, name, stock, image, id, category, dispatch } = this.props;
+        const { price, allPrices, brand, name, stock, image, id, category, dispatch } = this.props;
         const defaultSelectedAttributes = this.state.attributes.map((item) => {
             return {
                 id: item.id,
@@ -44,6 +44,7 @@ class ProductCard extends Component {
                     quantity: 1,
                     selectedAttributes: defaultSelectedAttributes,
                     allAttributes: this.state.attributes,
+                    allPrices,
                 },
             });
         };
