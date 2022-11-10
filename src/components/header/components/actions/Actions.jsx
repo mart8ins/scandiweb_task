@@ -16,7 +16,7 @@ class Actions extends Component {
     render() {
         const { dispatch } = this.props;
         const { data, active } = this.props.currencyReducer;
-        const { cart, showCartOverlay } = this.props.cartReducer;
+        const { cart, showCartOverlay, totalProductCount } = this.props.cartReducer;
 
         const changeActiveCurrency = (activeCurrency) => {
             dispatch({
@@ -63,7 +63,7 @@ class Actions extends Component {
                         <img src={empty_chart} alt="Empty chart" />
                         {cart.length > 0 && (
                             <div className="items__in__cart">
-                                <div className="cart__number">{cart.length}</div>
+                                <div className="cart__number">{totalProductCount}</div>
                             </div>
                         )}
                     </div>

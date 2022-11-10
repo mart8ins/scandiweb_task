@@ -9,7 +9,7 @@ import { cartAction } from "../../../redux/actions/cart";
 
 class CartOverlay extends Component {
     render() {
-        const { cart, showCartOverlay } = this.props.cartReducer;
+        const { cart, showCartOverlay, totalProductCount } = this.props.cartReducer;
         const { active } = this.props.currencyReducer;
         const { dispatch } = this.props;
 
@@ -27,7 +27,7 @@ class CartOverlay extends Component {
                     {cart && cart.length ? (
                         <div className="cart__preview">
                             <div className="preview__title">
-                                <span>My Bag,</span> {cart.length} items
+                                <span>My Bag,</span> {totalProductCount} items
                             </div>
                             <div
                                 className={`cart__items ${cart.length > 3 && "custom__scrollbar"}`}
