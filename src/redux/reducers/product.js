@@ -1,5 +1,4 @@
 import { productAction } from "../actions/product";
-
 const initialState = {
     productForCart: {},
 };

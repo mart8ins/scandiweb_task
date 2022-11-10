@@ -13,6 +13,7 @@ class ProductDetails extends Component {
         const {
             product: { attributes, brand, description, name, prices },
             dispatch,
+            setNewCartItemId,
         } = this.props;
 
         const addToCart = () => {
@@ -24,6 +25,7 @@ class ProductDetails extends Component {
                     allPrices: prices,
                 },
             });
+            setNewCartItemId();
         };
 
         return (

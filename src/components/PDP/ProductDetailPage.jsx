@@ -11,6 +11,7 @@ class ProductDetailPage extends Component {
     state = {
         product: {},
         productId: this.props.params.productId,
+        cartItemId: uuidv4(),
     };
 
     componentDidMount() {
@@ -29,7 +30,7 @@ class ProductDetailPage extends Component {
             dispatch({
                 type: productAction.INITILIZE_PRODUCT,
                 payload: {
-                    cartItemId: uuidv4(),
+                    cartItemId: this.state.cartItemId,
                     productId: this.state.productId,
                     quantity: 1,
                     selectedAttributes: selectDefaultAttributes,
@@ -44,12 +45,19 @@ class ProductDetailPage extends Component {
             product: data.product,
         });
     }
+
+    setNewCartItemId = () => {
+        this.setState({
+            ...this.state,
+            cartItemId: uuidv4(),
+        });
+    };
     render() {
         return (
             <div className="product__details_page">
                 {this.state.product.gallery && <DetailsImages images={this.state.product.gallery} />}
 
-                <ProductDetails product={this.state.product} />
+                <ProductDetails product={this.state.product} setNewCartItemId={this.setNewCartItemId} />
             </div>
         );
     }

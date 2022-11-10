@@ -103,11 +103,9 @@ export const cartReducer = (state = initialState, action) => {
             action.payload.cart.forEach((item) => {
                 item.allPrices.forEach((price) => {
                     if (price.currency.symbol == activeCurrency) {
-                        console.log(price.amount);
                         totalAmount += item.quantity * price.amount;
                     }
                 });
-                console.log(totalAmount, "totalAmount");
                 return {
                     ...state,
                     cartTotalAmount: totalAmount,
