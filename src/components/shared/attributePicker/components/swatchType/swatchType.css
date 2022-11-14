@@ -30,6 +30,9 @@
     height: 36px;
     border: 1px solid #ffffff;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .swatch__picker .swatch__variants__container .swatch__variants:hover {
@@ -37,11 +40,8 @@
 }
 
 .swatch__picker .swatch__variants__container .swatch__variants .variant {
-    position: relative;
-    top: 1px;
-    left: 1px;
-    width: 32px;
-    height: 32px;
+    width: 31px;
+    height: 31px;
 }
 
 #selected__border {
@@ -63,17 +63,20 @@
 .swatch__picker__overlay .swatch__variants__container__overlay {
     gap: 8px;
     height: 20px;
+    box-sizing: border-box;
 }
 
 .swatch__picker__overlay .swatch__variants__container__overlay .swatch__variants__overlay {
     width: 20px;
     height: 20px;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .swatch__picker__overlay .swatch__variants__container__overlay .swatch__variants__overlay .variant__overlay {
-    position: relative;
-    top: 1px;
-    left: 1px;
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
 }
