@@ -44,3 +44,7 @@
     position: relative;
     padding-left: 2px;
 }
+
+.item__image__container .change__image .disable__arrow {
+    visibility: hidden;
+}

@@ -50,12 +50,14 @@ class ImageSlide extends Component {
                 <img src={this.state.activeImage} />
                 {this.state.gallery && this.state.gallery.length > 1 && (
                     <div className="change__image">
-                        <div className="image__to__left" onClick={this.slideLeft}>
+                        <div className={`image__to__left ${this.state.activeIndex < 1 && "disable__arrow"}`} onClick={this.slideLeft}>
                             <div className="vector__container" onClick={this.slideLeft}>
                                 <img className="arrow" src={arrow_left} alt="Change image" />
                             </div>
                         </div>
-                        <div className="image__to__right" onClick={this.slideRight}>
+                        <div
+                            className={`image__to__right ${this.state.activeIndex == this.state.length && "disable__arrow"}`}
+                            onClick={this.slideRight}>
                             <div className="vector__container">
                                 <img className="arrow" src={arrow_right} alt="Change image" />
                             </div>
