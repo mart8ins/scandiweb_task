@@ -46,17 +46,31 @@ class App extends Component {
 
     render() {
         const { showCartOverlay } = this.props.cartReducer;
-        return (
-            <div className="App" style={showCartOverlay ? { overflow: "hidden" } : {}}>
-                <Header />
-                <Routes>
-                    <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />
-                    <Route path="/cart" element={<CartMain />} />
-                    <Route path="*" element={<Category />} />
-                </Routes>
+        const { dispatch } = this.props;
 
-                {showCartOverlay && <CartOverlay />}
-            </div>
+        return (
+            <>
+                <div className="App" style={showCartOverlay ? { overflow: "hidden" } : {}}>
+                    <Header />
+                    <Routes>
+                        <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />
+                        <Route path="/cart" element={<CartMain />} />
+                        <Route path="*" element={<Category />} />
+                    </Routes>
+
+                    {showCartOverlay && <CartOverlay />}
+                </div>
+                <div
+                    className={`${showCartOverlay && "click__to__hide"}`}
+                    onClick={() => {
+                        if (showCartOverlay) {
+                            dispatch({
+                                type: cartAction.TOOGLE_CART_VIEW,
+                                payload: false,
+                            });
+                        }
+                    }}></div>
+            </>
         );
     }
 }

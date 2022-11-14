@@ -23,7 +23,7 @@ class CartOverlay extends Component {
 
         return (
             <>
-                <div className="cart__overlay" onClick={toogleCartOverlay}></div>
+                <div className="cart__overlay"></div>
                 <div className="cart__preview__container">
                     {cart && cart.length ? (
                         <div className="cart__preview">
