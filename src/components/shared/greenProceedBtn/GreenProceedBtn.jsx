@@ -3,9 +3,10 @@ import "./greenProceedBtn.css";
 
 class GreenProceedBtn extends Component {
     render() {
-        const { text, styles, onClick } = this.props;
+        const { text, styles, onClick, disabled } = this.props;
+        console.log(disabled);
         return (
-            <button onClick={onClick} style={styles} className="proceed__btn">
+            <button onClick={onClick} style={styles} className={`proceed__btn ${disabled && "out__of__stock"}`} disabled={disabled}>
                 {text}
             </button>
         );

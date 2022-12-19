@@ -55,15 +55,10 @@ export const productQuery = (productId) => {
                 product(id:"${productId}") {
                     id
                     name
-                    brand
-                    description
-                    prices {
-                        currency {
-                            symbol
-                        }
-                        amount
-                        }
+                    inStock
                     gallery
+                    description
+                    category
                     attributes {
                         id
                         name
@@ -74,6 +69,13 @@ export const productQuery = (productId) => {
                         id
                         }
                     }
+                    prices {
+                        currency {
+                            symbol
+                        }
+                        amount
+                        }
+                    brand
                 }
             }
         `,

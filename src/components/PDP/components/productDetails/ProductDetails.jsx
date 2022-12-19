@@ -11,7 +11,7 @@ import GreenProceedBtn from "../../../shared/greenProceedBtn/GreenProceedBtn";
 class ProductDetails extends Component {
     render() {
         const {
-            product: { attributes, brand, description, name, prices },
+            product: { attributes, brand, description, name, prices, inStock },
             dispatch,
             setNewCartItemId,
         } = this.props;
@@ -43,7 +43,8 @@ class ProductDetails extends Component {
                 <div className="product__add__to__chart__container">
                     <GreenProceedBtn
                         styles={{ width: "292px", height: "52px", fontSize: "16px" }}
-                        text={"Add to cart"}
+                        text={inStock ? "Add to cart" : "Out of stock"}
+                        disabled={!inStock}
                         onClick={() => {
                             addToCart();
                         }}

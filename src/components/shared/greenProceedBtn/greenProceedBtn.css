@@ -17,3 +17,12 @@
     cursor: pointer;
     filter: brightness(95%);
 }
+
+.out__of__stock {
+    background-color: rgba(57, 55, 72, 0.22);
+}
+
+.out__of__stock:hover {
+    cursor: default;
+    filter: brightness(100%);
+}

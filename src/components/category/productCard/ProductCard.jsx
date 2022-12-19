@@ -72,25 +72,29 @@ class ProductCard extends Component {
                     )}
 
                     <img className="product__image" src={image} alt="Product image" />
-                    <div
-                        onClick={this.state.hoverOnIcon ? addToCart : undefined}
-                        className={`add__to__basket_icon__container hide__addToCart__icon ${this.state.hover && "show__addToCart__icon"}`}>
-                        <img
-                            onMouseEnter={() => {
-                                this.setState({
-                                    hoverOnIcon: true,
-                                });
-                            }}
-                            onMouseLeave={() => {
-                                this.setState({
-                                    hoverOnIcon: false,
-                                });
-                            }}
-                            src={add_to_basket}
-                            alt="Add to basket button"
-                            className="add__to__basket_icon"
-                        />
-                    </div>
+                    {stock && (
+                        <div
+                            onClick={this.state.hoverOnIcon ? addToCart : undefined}
+                            className={`add__to__basket_icon__container hide__addToCart__icon ${
+                                this.state.hover && "show__addToCart__icon"
+                            }`}>
+                            <img
+                                onMouseEnter={() => {
+                                    this.setState({
+                                        hoverOnIcon: true,
+                                    });
+                                }}
+                                onMouseLeave={() => {
+                                    this.setState({
+                                        hoverOnIcon: false,
+                                    });
+                                }}
+                                src={add_to_basket}
+                                alt="Add to basket button"
+                                className="add__to__basket_icon"
+                            />
+                        </div>
+                    )}
                 </div>
 
                 <div className="space__base"></div>
