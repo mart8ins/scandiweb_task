@@ -50,7 +50,7 @@ class App extends Component {
 
         return (
             <>
-                <div className="App" style={showCartOverlay ? { overflow: "hidden" } : {}}>
+                <div className={`App ${showCartOverlay && "overflow__hidden"}`}>
                     <Header />
                     <Routes>
                         <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />

@@ -27,9 +27,7 @@ class CartOverlay extends Component {
                         <div className="preview__title">
                             <span>My Bag,</span> {totalProductCount} items
                         </div>
-                        <div
-                            className={`cart__items ${cart.length > 3 && "custom__scrollbar"}`}
-                            style={cart.length < 4 ? { overflowX: "hidden", overflowY: "hidden" } : {}}>
+                        <div className={`cart__items ${cart.length > 3 ? "custom__scrollbar" : "hidden__scrollBar"}`}>
                             {cart &&
                                 cart.map((cartItem) => {
                                     if (cartItem.quantity > 0) {

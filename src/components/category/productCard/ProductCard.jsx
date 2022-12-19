@@ -53,8 +53,7 @@ class ProductCard extends Component {
         return (
             <Link
                 to={this.state.hoverOnIcon ? undefined : `/${category}/${id}`}
-                className="product__card"
-                style={{ pointerEvents: !stock && "none" }}
+                className={`product__card`}
                 onMouseEnter={() => {
                     this.setState({
                         hover: true,
@@ -75,8 +74,7 @@ class ProductCard extends Component {
                     <img className="product__image" src={image} alt="Product image" />
                     <div
                         onClick={this.state.hoverOnIcon ? addToCart : undefined}
-                        className="add__to__basket_icon__container"
-                        style={{ visibility: this.state.hover ? "visible" : "hidden" }}>
+                        className={`add__to__basket_icon__container hide__addToCart__icon ${this.state.hover && "show__addToCart__icon"}`}>
                         <img
                             onMouseEnter={() => {
                                 this.setState({

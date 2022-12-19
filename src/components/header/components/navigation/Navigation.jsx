@@ -16,10 +16,7 @@ class Navigation extends Component {
                             return (
                                 <div
                                     key={uuidv4()}
-                                    className="navigation__element"
-                                    style={{
-                                        borderBottom: active.name === category.name && "2px solid #5ece7b",
-                                    }}>
+                                    className={`navigation__element ${active.name === category.name && "active__category__bottomBorder"}`}>
                                     <Link
                                         to="/"
                                         onClick={() => {
@@ -28,10 +25,7 @@ class Navigation extends Component {
                                                 payload: category,
                                             });
                                         }}
-                                        className="label"
-                                        style={{
-                                            color: active.name === category.name && "#5ece7b",
-                                        }}>
+                                        className={`label ${active.name === category.name && "active__category__name"}`}>
                                         {category.name}
                                     </Link>
                                 </div>

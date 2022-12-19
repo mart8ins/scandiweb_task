@@ -7,6 +7,10 @@
     margin: 0 auto;
 }
 
+.overflow__hidden {
+    overflow: hidden;
+}
+
 .click__to__hide {
     position: absolute;
     z-index: 4;

@@ -71,6 +71,14 @@
     transform: scale(1.1);
 }
 
+.product__card .product__image__container .hide__addToCart__icon {
+    visibility: hidden;
+}
+
+.product__card .product__image__container .show__addToCart__icon {
+    visibility: visible;
+}
+
 .product__card .product__image__container .product__image {
     width: 354px;
     height: 330px;

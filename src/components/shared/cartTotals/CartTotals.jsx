@@ -59,9 +59,7 @@ class CartTotals extends Component {
                             <div className="totals__value">{totalProductCount}</div>
                         </div>
                         <div className="totals__heading">
-                            <div style={{ fontWeight: 500 }} className="totals__title">
-                                Total:
-                            </div>
+                            <div className="totals__title fontWeight500">Total:</div>
                             <div className="totals__value">
                                 {symbol}
                                 {this.state.cartTotalAmount}
@@ -70,9 +68,7 @@ class CartTotals extends Component {
                     </div>
                 ) : (
                     <div className="totals__heading__overlay">
-                        <div style={{ fontWeight: 500 }} className="totals__title__overlay">
-                            Total:
-                        </div>
+                        <div className="totals__title__overlay fontWeight500">Total:</div>
                         <div className="totals__value__overlay">
                             {symbol}
                             {this.state.cartTotalAmount}
