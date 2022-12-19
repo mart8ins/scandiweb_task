@@ -20,42 +20,38 @@ class CartOverlay extends Component {
                 payload: !showCartOverlay,
             });
         };
-
         return (
-            <>
-                <div className="cart__overlay"></div>
-                <div className="cart__preview__container">
-                    {cart && cart.length ? (
-                        <div className="cart__preview">
-                            <div className="preview__title">
-                                <span>My Bag,</span> {totalProductCount} items
-                            </div>
-                            <div
-                                className={`cart__items ${cart.length > 3 && "custom__scrollbar"}`}
-                                style={cart.length < 4 ? { overflowX: "hidden", overflowY: "hidden" } : {}}>
-                                {cart &&
-                                    cart.map((cartItem) => {
-                                        if (cartItem.quantity > 0) {
-                                            return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
-                                        }
-                                    })}
-                            </div>
-                            <div className="cart__overlay__totals__container">
-                                <CartTotals />
-                            </div>
-
-                            <div className="cart__overlay__buttons__container">
-                                <Link to="/cart" className="cart__overlay__button" onClick={toogleCartOverlay}>
-                                    View bag
-                                </Link>
-                                <GreenProceedBtn styles={{ width: "140px", height: "43px", fontSize: "14px" }} text="Check Out" />
-                            </div>
+            <div className="cart__preview__container">
+                {cart && cart.length ? (
+                    <div className="cart__preview">
+                        <div className="preview__title">
+                            <span>My Bag,</span> {totalProductCount} items
                         </div>
-                    ) : (
-                        <div className="empty__cart">Cart is empty</div>
-                    )}
-                </div>
-            </>
+                        <div
+                            className={`cart__items ${cart.length > 3 && "custom__scrollbar"}`}
+                            style={cart.length < 4 ? { overflowX: "hidden", overflowY: "hidden" } : {}}>
+                            {cart &&
+                                cart.map((cartItem) => {
+                                    if (cartItem.quantity > 0) {
+                                        return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
+                                    }
+                                })}
+                        </div>
+                        <div className="cart__overlay__totals__container">
+                            <CartTotals />
+                        </div>
+
+                        <div className="cart__overlay__buttons__container">
+                            <Link to="/cart" className="cart__overlay__button" onClick={toogleCartOverlay}>
+                                View bag
+                            </Link>
+                            <GreenProceedBtn styles={{ width: "140px", height: "43px", fontSize: "14px" }} text="Check Out" />
+                        </div>
+                    </div>
+                ) : (
+                    <div className="empty__cart">Cart is empty</div>
+                )}
+            </div>
         );
     }
 }

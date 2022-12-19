@@ -1,12 +1,3 @@
-.cart__overlay {
-    width: 1440px;
-    position: absolute;
-    z-index: 3;
-    top: 80px;
-    bottom: 0px;
-    background: rgba(57, 55, 72, 0.22);
-}
-
 .cart__preview__container {
     position: absolute;
     right: 72px;
