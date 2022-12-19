@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./textType.css";
 import { v4 as uuidv4 } from "uuid";
 import { connect } from "react-redux";
-import { cartAction } from "../../../../../redux/actions/cart";
 import { productAction } from "../../../../../redux/actions/product";
 
 class TextType extends Component {
@@ -24,32 +23,24 @@ class TextType extends Component {
     }
 
     addAttribute(item) {
-        this.setState({
-            selectedText: item.value,
-        });
         const {
             dispatch,
             attribute: { id },
-            cartItemId,
+            forType,
         } = this.props;
-        if (!this.props.cartReducer.showCartOverlay && window.location.pathname !== "/cart") {
-            dispatch({
-                type: productAction.ADD_ATTRIBUTE,
-                payload: {
-                    id: id,
-                    item: item,
-                },
+        if (!forType) {
+            this.setState({
+                selectedText: item.value,
             });
-        }
-        if (this.props.cartReducer.showCartOverlay || window.location.pathname == "/cart") {
-            dispatch({
-                type: cartAction.CHANGE_ATTRIBUTE,
-                payload: {
-                    id: id,
-                    item: item,
-                    cartItemId,
-                },
-            });
+            if (!this.props.cartReducer.showCartOverlay && window.location.pathname !== "/cart") {
+                dispatch({
+                    type: productAction.ADD_ATTRIBUTE,
+                    payload: {
+                        id: id,
+                        item: item,
+                    },
+                });
+            }
         }
     }
 

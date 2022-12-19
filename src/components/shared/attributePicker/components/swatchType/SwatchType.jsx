@@ -3,7 +3,6 @@ import "./swatchType.css";
 import { v4 as uuidv4 } from "uuid";
 import { connect } from "react-redux";
 import { productAction } from "../../../../../redux/actions/product";
-import { cartAction } from "../../../../../redux/actions/cart";
 
 class SwatchType extends Component {
     state = {
@@ -24,33 +23,25 @@ class SwatchType extends Component {
     }
 
     addAttribute(item) {
-        this.setState({
-            selectedSwatch: item.displayValue,
-        });
         const {
             dispatch,
             attribute: { id },
-            cartItemId,
+            forType,
         } = this.props;
 
-        if (!this.props.cartReducer.showCartOverlay && window.location.pathname !== "/cart") {
-            dispatch({
-                type: productAction.ADD_ATTRIBUTE,
-                payload: {
-                    id: id,
-                    item: item,
-                },
+        if (!forType) {
+            this.setState({
+                selectedSwatch: item.displayValue,
             });
-        }
-        if (this.props.cartReducer.showCartOverlay || window.location.pathname == "/cart") {
-            dispatch({
-                type: cartAction.CHANGE_ATTRIBUTE,
-                payload: {
-                    id: id,
-                    item: item,
-                    cartItemId,
-                },
-            });
+            if (!this.props.cartReducer.showCartOverlay && window.location.pathname !== "/cart") {
+                dispatch({
+                    type: productAction.ADD_ATTRIBUTE,
+                    payload: {
+                        id: id,
+                        item: item,
+                    },
+                });
+            }
         }
     }
 
