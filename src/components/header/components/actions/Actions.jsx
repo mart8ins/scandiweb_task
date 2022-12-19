@@ -10,13 +10,9 @@ import empty_chart from "../../../../icons/Empty Cart.svg";
 import CurrencySwitcher from "./components/CurrencySwitcher";
 
 class Actions extends Component {
-    state = {
-        showCurrencyOptions: false,
-    };
-
     render() {
         const { dispatch } = this.props;
-        const { data, active } = this.props.currencyReducer;
+        const { data, active, showCurrencyOptions } = this.props.currencyReducer;
         const { cart, showCartOverlay, totalProductCount } = this.props.cartReducer;
 
         const changeActiveCurrency = (activeCurrency) => {
@@ -24,8 +20,9 @@ class Actions extends Component {
                 type: currencyAction.SET__ACTIVE__CURRENCY,
                 payload: activeCurrency,
             });
-            this.setState({
-                showCurrencyOptions: false,
+            dispatch({
+                type: currencyAction.TOOGLE__CURRENCY__SWITCHER,
+                payload: false,
             });
         };
 
@@ -48,17 +45,17 @@ class Actions extends Component {
                         className="currency"
                         onClick={() => {
                             if (!showCartOverlay) {
-                                this.setState({
-                                    ...this.state,
-                                    showCurrencyOptions: !this.state.showCurrencyOptions,
+                                dispatch({
+                                    type: currencyAction.TOOGLE__CURRENCY__SWITCHER,
+                                    payload: !showCurrencyOptions,
                                 });
                             }
                         }}>
                         <div className="currency__symbol">
                             <div className="symbol">{active.symbol}</div>
                         </div>
-                        {!this.state.showCurrencyOptions && <img className="vector" src={vector_down} alt="Currency chooser" />}
-                        {this.state.showCurrencyOptions && <img className="vector" src={vector_up} alt="Currency chooser" />}
+                        {!showCurrencyOptions && <img className="vector" src={vector_down} alt="Currency chooser" />}
+                        {showCurrencyOptions && <img className="vector" src={vector_up} alt="Currency chooser" />}
                     </div>
                     <div className="chart__icon" onClick={toogleCartView}>
                         <img src={empty_chart} alt="Empty chart" />
@@ -69,7 +66,7 @@ class Actions extends Component {
                         )}
                     </div>
                 </div>
-                {this.state.showCurrencyOptions && <CurrencySwitcher currencies={data} changeActiveCurrency={changeActiveCurrency} />}
+                {showCurrencyOptions && <CurrencySwitcher currencies={data} changeActiveCurrency={changeActiveCurrency} />}
             </>
         );
     }

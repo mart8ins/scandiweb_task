@@ -3,6 +3,7 @@ import { currencyAction } from "../actions/currency";
 const intitialState = {
     data: [],
     active: {},
+    showCurrencyOptions: false,
 };
 
 export const currencyReducer = (state = intitialState, actions) => {
@@ -16,6 +17,11 @@ export const currencyReducer = (state = intitialState, actions) => {
             return (state = {
                 ...state,
                 active: actions.payload,
+            });
+        case currencyAction.TOOGLE__CURRENCY__SWITCHER:
+            return (state = {
+                ...state,
+                showCurrencyOptions: actions.payload,
             });
         default:
             return state;

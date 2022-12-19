@@ -41,7 +41,6 @@ class ProductDetailPage extends Component {
 
     async getDetails() {
         const { data } = await productQuery(this.state.productId);
-        console.log(data);
         this.setState({
             product: data.product,
         });

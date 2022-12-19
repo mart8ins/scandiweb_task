@@ -46,6 +46,7 @@ class App extends Component {
 
     render() {
         const { showCartOverlay } = this.props.cartReducer;
+        const { showCurrencyOptions } = this.props.currencyReducer;
         const { dispatch } = this.props;
 
         return (
@@ -61,11 +62,22 @@ class App extends Component {
                     {showCartOverlay && <CartOverlay />}
                 </div>
                 <div
-                    className={`${showCartOverlay && "click__to__hide"}`}
+                    className={`${showCartOverlay && "click__to__hide__cart"}`}
                     onClick={() => {
                         if (showCartOverlay) {
                             dispatch({
                                 type: cartAction.TOOGLE_CART_VIEW,
+                                payload: false,
+                            });
+                        }
+                    }}></div>
+
+                <div
+                    className={`${showCurrencyOptions && "click__to__hide__currencies"}`}
+                    onClick={() => {
+                        if (showCurrencyOptions) {
+                            dispatch({
+                                type: currencyAction.TOOGLE__CURRENCY__SWITCHER,
                                 payload: false,
                             });
                         }
@@ -77,6 +89,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         cartReducer: state.cartReducer,
+        currencyReducer: state.currencyReducer,
     };
 };
 export default connect(mapStateToProps)(App);

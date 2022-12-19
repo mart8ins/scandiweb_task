@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 
-.click__to__hide {
+.click__to__hide__cart {
     position: absolute;
     z-index: 4;
     top: 81px;
@@ -19,4 +19,13 @@
     left: 0;
     right: 0;
     background: rgba(57, 55, 72, 0.22);
+}
+
+.click__to__hide__currencies {
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
