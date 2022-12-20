@@ -38,7 +38,7 @@ class Navigation extends Component {
                                         activeCategoryName === category.name && "active__category__bottomBorder"
                                     }`}>
                                     <Link
-                                        to="/"
+                                        to={`/${category.name}`}
                                         onClick={async () => {
                                             const data = await categoryProductsQuery(category.name);
                                             dispatch({

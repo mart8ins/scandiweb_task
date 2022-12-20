@@ -11,6 +11,7 @@ import Category from "./components/category/Category";
 import Header from "./components/header/Header";
 import ProductDetailPage from "./components/PDP/ProductDetailPage";
 import { currenciesQuery, categoryNamesQuery } from "./components/queries";
+import withRouter from "./components/PDP/withRouter";
 
 class App extends Component {
     componentDidMount() {
@@ -34,7 +35,7 @@ class App extends Component {
     }
 
     async fetchCategoryNames() {
-        const { dispatch } = this.props;
+        const { dispatch, navigate } = this.props;
         const {
             data: { categories },
         } = await categoryNamesQuery();
@@ -42,13 +43,15 @@ class App extends Component {
             type: categoryAction.GET__CATEGORY__NAMES,
             payload: categories,
         });
+        navigate(`/${categories[0].name}`);
     }
 
     render() {
         const { showCartOverlay } = this.props.cartReducer;
         const { showCurrencyOptions } = this.props.currencyReducer;
-        const { categoryNames } = this.props.categoryReducer;
+        const { categoryNames, activeCategoryName } = this.props.categoryReducer;
         const { dispatch } = this.props;
+
         return (
             <>
                 <div className={`App ${showCartOverlay && "overflow__hidden"}`}>
@@ -56,7 +59,7 @@ class App extends Component {
                     <Routes>
                         <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />
                         <Route path="/cart" element={<CartMain />} />
-                        <Route path="*" element={<Category />} />
+                        <Route path={`/:${activeCategoryName}`} element={<Category />} />
                     </Routes>
 
                     {showCartOverlay && <CartOverlay />}
@@ -93,4 +96,4 @@ const mapStateToProps = (state) => {
         categoryReducer: state.categoryReducer,
     };
 };
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(withRouter(App));
