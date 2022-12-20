@@ -78,7 +78,7 @@
     height: 190px;
 }
 .cart__item__container__ov .item__image__container__ov img {
-    width: fill;
-    height: fill;
+    width: stretch;
+    height: stretch;
     object-fit: contain;
 }

@@ -60,6 +60,7 @@ class App extends Component {
                         <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />
                         <Route path="/cart" element={<CartMain />} />
                         <Route path={`/:${activeCategoryName}`} element={<Category />} />
+                        <Route path="/" element={<Category />} />
                     </Routes>
 
                     {showCartOverlay && <CartOverlay />}

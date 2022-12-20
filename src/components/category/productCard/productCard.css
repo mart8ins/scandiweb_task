@@ -80,8 +80,7 @@
 }
 
 .product__card .product__image__container .product__image {
-    width: 354px;
-    height: 330px;
+    height: 310px;
     flex: none;
     order: 0;
     align-self: stretch;

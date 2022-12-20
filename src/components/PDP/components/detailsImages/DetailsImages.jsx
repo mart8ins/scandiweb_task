@@ -26,7 +26,7 @@ class DetailsImages extends Component {
     }
 
     componentDidUpdate() {
-        if (this.state.images.length == 0) {
+        if (this.state.images.length === 0) {
             const { images } = this.props;
             if (images.length > 1) {
                 const sliced = images.slice(1);
@@ -66,12 +66,14 @@ class DetailsImages extends Component {
                                     key={uuidv4()}
                                     className="side__image"
                                     src={image}
-                                    alt="Product image option"
+                                    alt={`Product - ${image}`}
                                 />
                             );
                         })}
                 </div>
-                <img className="main__image__view" src={this.state.mainImage} alt="Product main image" />
+                <div className="main__image__view">
+                    <img className="main__image" src={this.state.mainImage} alt={`Product- ${this.state.mainImage}`} />
+                </div>
             </div>
         );
     }

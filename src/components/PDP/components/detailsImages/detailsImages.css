@@ -21,8 +21,16 @@
 /* MAIN IMAGE */
 .images__container .main__image__view {
     position: absolute;
-    width: 610px;
+    width: 630px;
     height: 511px;
     left: 219px;
     top: 162px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.images__container .main__image__view .main__image {
+    max-width: 630px;
+    height: auto;
+    max-height: 511px;
 }
