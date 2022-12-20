@@ -10,7 +10,7 @@ import CartOverlay from "./components/cart/cartOverlay/CartOverlay";
 import Category from "./components/category/Category";
 import Header from "./components/header/Header";
 import ProductDetailPage from "./components/PDP/ProductDetailPage";
-import { currenciesQuery, categoryQuery } from "./components/queries";
+import { currenciesQuery, categoryNamesQuery } from "./components/queries";
 
 class App extends Component {
     componentDidMount() {
@@ -19,7 +19,7 @@ class App extends Component {
             type: cartAction.GET_CART_LS,
         });
         this.getCurrencies();
-        this.getCategories();
+        this.fetchCategoryNames();
     }
 
     async getCurrencies() {
@@ -33,13 +33,13 @@ class App extends Component {
         });
     }
 
-    async getCategories() {
+    async fetchCategoryNames() {
+        const { dispatch } = this.props;
         const {
             data: { categories },
-        } = await categoryQuery();
-        const { dispatch } = this.props;
+        } = await categoryNamesQuery();
         dispatch({
-            type: categoryAction.GET__CATEGORIES__DATA,
+            type: categoryAction.GET__CATEGORY__NAMES,
             payload: categories,
         });
     }
@@ -47,12 +47,12 @@ class App extends Component {
     render() {
         const { showCartOverlay } = this.props.cartReducer;
         const { showCurrencyOptions } = this.props.currencyReducer;
+        const { categoryNames } = this.props.categoryReducer;
         const { dispatch } = this.props;
-
         return (
             <>
                 <div className={`App ${showCartOverlay && "overflow__hidden"}`}>
-                    <Header />
+                    {categoryNames.length ? <Header /> : null}
                     <Routes>
                         <Route path="/:categoryName/:productId" element={<ProductDetailPage />} />
                         <Route path="/cart" element={<CartMain />} />
@@ -90,6 +90,7 @@ const mapStateToProps = (state) => {
     return {
         cartReducer: state.cartReducer,
         currencyReducer: state.currencyReducer,
+        categoryReducer: state.categoryReducer,
     };
 };
 export default connect(mapStateToProps)(App);

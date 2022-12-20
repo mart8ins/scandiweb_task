@@ -5,6 +5,44 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 });
 
+// GET CATEGORY NAMES
+export const categoryNamesQuery = () => {
+    return client.query({
+        query: gql`
+            query Category {
+                categories {
+                    name
+                }
+            }
+        `,
+    });
+};
+
+export const categoryProductsQuery = (categoryId) => {
+    return client.query({
+        query: gql`
+            query Category {
+                category(input: {title: "${categoryId}"}) {
+                    products {
+                      id
+                      name
+                      brand
+                      inStock
+                      gallery
+                      prices {                          
+                      currency {
+                        symbol
+                            }
+                        amount
+                       }
+                      category
+                    }
+                  }
+            }
+        `,
+    });
+};
+
 // GET CURRENCIES
 export const currenciesQuery = () => {
     return client.query({
@@ -16,34 +54,6 @@ export const currenciesQuery = () => {
                 }
             }
         `,
-    });
-};
-
-// GET CATEGORIES WITH PRODUCTS
-export const categoryQuery = () => {
-    return client.query({
-        query: gql`
-            query Category {
-                categories {
-                    name
-                    products {
-                        id
-                        name
-                        brand
-                        inStock
-                        gallery
-                        prices {
-                            currency {
-                                symbol
-                            }
-                            amount
-                        }
-                        category
-                    }
-                }
-            }
-        `,
-        fetchPolicy: "network-only",
     });
 };
 
@@ -79,7 +89,6 @@ export const productQuery = (productId) => {
                 }
             }
         `,
-        // fetchPolicy: "network-only",
     });
 };
 

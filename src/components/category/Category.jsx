@@ -7,14 +7,14 @@ import ProductCard from "./productCard/ProductCard";
 
 class Category extends Component {
     render() {
-        const { name, products } = this.props.categoryReducer.active;
+        const { activeCategoryName, activeCategoryProducts } = this.props.categoryReducer;
         const { symbol } = this.props.currencyReducer.active;
         return (
             <div>
-                <h2 className="category__name">{name}</h2>
+                <h2 className="category__name">{activeCategoryName}</h2>
                 <div className="products__container">
-                    {products &&
-                        products.map((product) => {
+                    {activeCategoryProducts &&
+                        activeCategoryProducts.map((product) => {
                             const activePrice =
                                 product.prices &&
                                 product.prices.filter((pr) => {

@@ -1,4 +1,4 @@
 export const categoryAction = {
-    GET__CATEGORIES__DATA: "GET__CATEGORIES__DATA",
     SET__ACTIVE__CATEGORY: "SET__ACTIVE__CATEGORY",
+    GET__CATEGORY__NAMES: "GET__CATEGORY__NAMES",
 };
