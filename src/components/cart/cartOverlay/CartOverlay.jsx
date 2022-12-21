@@ -33,6 +33,8 @@ class CartOverlay extends Component {
                                 cart.map((cartItem) => {
                                     if (cartItem.quantity > 0) {
                                         return <CartItemOverlay key={uuidv4()} cartItem={cartItem} />;
+                                    } else {
+                                        return null;
                                     }
                                 })}
                         </div>
