@@ -20,14 +20,15 @@ class CartOverlay extends Component {
                 payload: !showCartOverlay,
             });
         };
+
         return (
             <div className="cart__preview__container">
                 {cart && cart.length ? (
-                    <div className="cart__preview">
+                    <div className="cart__preview cart__preview__sm cart__preview__lg">
                         <div className="preview__title">
                             <span>My Bag,</span> {totalProductCount} items
                         </div>
-                        <div className={`cart__items ${cart.length > 3 ? "custom__scrollbar" : "hidden__scrollBar"}`}>
+                        <div className={`cart__items ${cart.length >= 2 ? "custom__scrollbar" : "hidden__scrollBar"}`}>
                             {cart &&
                                 cart.map((cartItem) => {
                                     if (cartItem.quantity > 0) {
@@ -43,7 +44,7 @@ class CartOverlay extends Component {
                             <Link to="/cart" className="cart__overlay__button" onClick={toogleCartOverlay}>
                                 View bag
                             </Link>
-                            <GreenProceedBtn styles={{ width: "140px", height: "43px", fontSize: "14px" }} text="Check Out" />
+                            <GreenProceedBtn styles={{ width: "122px", height: "26px", fontSize: "0.72rem" }} text="Check Out" />
                         </div>
                     </div>
                 ) : (

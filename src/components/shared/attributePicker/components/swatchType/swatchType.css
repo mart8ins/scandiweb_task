@@ -49,21 +49,24 @@
 }
 
 /* FOR CART OVERLAY */
+.swatch__picker__overlay {
+    margin-top: 0px;
+}
 .swatch__picker__overlay .swatch__title__overlay {
-    width: 38px;
-    height: 16px;
+    height: 1rem;
+    padding: 1px;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 0.8rem;
     text-transform: capitalize;
 }
 
 .swatch__picker__overlay .swatch__variants__container__overlay {
-    gap: 8px;
+    gap: 4px;
     height: 20px;
     box-sizing: border-box;
+    top: 0;
 }
 
 .swatch__picker__overlay .swatch__variants__container__overlay .swatch__variants__overlay {
@@ -77,6 +80,13 @@
 }
 
 .swatch__picker__overlay .swatch__variants__container__overlay .swatch__variants__overlay .variant__overlay {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
+}
+
+.swatch__picker .swatch__variants__container .swatch__variants__overlay:hover {
+    cursor: default;
+}
+.swatch__picker .swatch__variants__container .swatch__variants__cart:hover {
+    cursor: default;
 }

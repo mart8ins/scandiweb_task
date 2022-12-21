@@ -48,13 +48,12 @@
 
 /* FOR CART OVERLAY */
 .text__picker__overlay .text__title__overlay {
-    padding: 5px;
-    height: 16px;
+    padding: 1px;
+    height: 1rem;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     color: #1d1f22;
@@ -63,19 +62,18 @@
 
 .text__picker__overlay .text__variants__container__overlay {
     display: flex;
-    gap: 8px;
+    gap: 4px;
     margin-top: 0;
 }
 
 .text__picker__overlay .text__variants__container__overlay .text__variants__overlay {
     box-sizing: border-box;
     width: min-content;
-    min-width: 24px;
+    min-width: 20px;
     padding: 0 2px;
     width: auto;
-    height: 24px;
-    font-size: 14px;
-    line-height: 160%;
+    height: 20px;
+    font-size: 0.7rem;
     letter-spacing: 0em;
 }
 
@@ -86,7 +84,7 @@
 }
 
 .text__picker__overlay .text__variants__container__overlay .text__variants__overlay:hover {
-    cursor: pointer;
+    cursor: default;
 }
 
 /* FOR MAIN CART */
@@ -135,5 +133,5 @@
 }
 
 .text__picker__cart .text__variants__container__cart .text__variants__cart:hover {
-    cursor: pointer;
+    cursor: default;
 }

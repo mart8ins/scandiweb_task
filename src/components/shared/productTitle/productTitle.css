@@ -15,7 +15,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 30px;
-    line-height: 27px;
+    line-height: 47px;
     display: flex;
     align-items: center;
     color: #1d1f22;
@@ -29,12 +29,12 @@
 /* STYLES FOR CART OVERLAY*/
 .product__title__overlay {
     width: 136px;
-    height: 52px;
+    height: 48px;
 }
 
 .product__title__overlay .brand__name__overlay,
 .product__name__overlay {
     font-weight: 300;
-    font-size: 16px;
-    line-height: 160%;
+    font-size: 0.8rem;
+    margin: 0;
 }

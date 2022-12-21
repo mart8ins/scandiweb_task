@@ -1,36 +1,31 @@
 .cart__preview__container {
     position: absolute;
     right: 72px;
-    width: 325px;
+    width: auto;
     top: 80px;
     background: #ffffff;
     z-index: 5;
 }
 
 .cart__preview__container .cart__preview {
-    padding: 14px;
+    padding: 0.7rem;
 }
 
 .cart__preview__container .cart__preview .preview__title {
-    width: 138px;
-    height: 26px;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 160%;
+    font-size: 0.9rem;
     text-align: left;
     color: #1d1f22;
-    margin-top: 16px;
-    margin-bottom: 32px;
+    margin: 0px 0px 8px;
 }
 .cart__preview__container .cart__preview .preview__title span {
     font-weight: 700;
 }
 
 .cart__preview__container .cart__preview .cart__items {
-    height: auto;
-    max-height: 760px;
+    max-height: 260px;
     overflow: scroll;
 }
 
@@ -39,8 +34,7 @@
 }
 
 .cart__preview__container .cart__preview .cart__overlay__totals__container {
-    width: 289px;
-    height: 28px;
+    width: auto;
     display: flex;
     justify-content: space-between;
 }
@@ -48,18 +42,16 @@
 .cart__preview__container .cart__preview .cart__overlay__buttons__container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 12px;
-    width: 292px;
-    height: 43px;
-    margin: 34px 0 32px;
+    justify-content: space-evenly;
+    gap: 28px;
+    width: auto;
+    margin: 8px 0px;
 }
 
 .cart__preview__container .cart__preview .cart__overlay__buttons__container .cart__overlay__button {
     text-decoration: none;
-    width: 140px;
-    height: 43px;
+    width: 120px;
+    height: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,8 +61,7 @@
     font-family: "Raleway";
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 120%;
+    font-size: 0.7rem;
     color: #1d1f22;
     text-transform: uppercase;
 }
@@ -80,14 +71,16 @@
 }
 
 .cart__preview__container .empty__cart {
-    height: 200px;
+    height: 100px;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 1.3rem;
+    padding: 5px 15px;
 }
 
 /* CUSTOM SCROLL BAR*/

@@ -32,7 +32,7 @@
     font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.8rem;
     line-height: 18px;
     color: #1d1f22;
     display: flex;
@@ -54,13 +54,13 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 8px;
 }
 .totals__heading__overlay .totals__title__overlay {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 0.9rem;
     color: #1d1f22;
     display: flex;
     align-items: center;
@@ -69,8 +69,7 @@
     font-family: "Raleway";
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 160%;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     color: #1d1f22;
